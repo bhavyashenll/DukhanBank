@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="urn:esbbank.com/gbo/xml/schemas/v1_0/" version="1.0"
+	xmlns:esbbankgbo="urn:esbbank.com/gbo/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+       <xsd:include schemaLocation="SchemaTypes.xsd"></xsd:include>	
+
+	<xsd:complexType name="ProfitRateRequest">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ProfitRateReply">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumProvider" type="esbbankgbo:ReferenceNumProvider" />
+			<xsd:element name="profitRate" type="esbbankgbo:ProfitRateType"
+				maxOccurs="unbounded" minOccurs="0">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="returnStatus"
+				type="esbbankgbo:ReturnStatus" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="returnStatusProvider" type="esbbankgbo:ReturnStatusProvider" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	
+	<xsd:complexType name="ProfitRateType">
+		<xsd:sequence>
+			<xsd:element name="productType"
+				type="esbbankgbo:AcctSubType" maxOccurs="1" minOccurs="0" />
+			<xsd:element minOccurs="0" name="productSubtype"
+				type="esbbankgbo:AcctClassCode" />
+			<xsd:element name="description" type="esbbankgbo:Description" maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="rate"
+				type="esbbankgbo:Amount">
+			</xsd:element>
+			<xsd:element name="currency" type="esbbankgbo:CurrencyCode"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="lastMonthDate" type="esbbankgbo:Date">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="rateCreationDate" type="esbbankgbo:Date">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="rateApprovalDate" type="esbbankgbo:Date">
+			</xsd:element>
+			<xsd:element name="Tenure" type="xsd:string" maxOccurs="1"
+				minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>	

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="urn:esbbank.com/gbo/xml/schemas/v1_0/" version="1.0"
+	xmlns:esbbankgbo="urn:esbbank.com/gbo/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+       <xsd:include schemaLocation="SchemaTypes.xsd"></xsd:include>	
+
+	<xsd:complexType name="DebitCardPINVerificationRequest">
+		<xsd:sequence>
+			<xsd:element name="referenceNum"
+				type="esbbankgbo:ReferenceNum" maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" />
+			<xsd:element name="cardNumber"
+				type="esbbankgbo:CardNumberType" maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element name="pin" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="DebitCardPINVerificationReply">
+		<xsd:sequence>
+			<xsd:element name="referenceNum" type="esbbankgbo:ReferenceNum"
+				maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="referenceNumProvider" type="esbbankgbo:ReferenceNumProvider"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+			<xsd:element name="returnStatus" type="esbbankgbo:ReturnStatus"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="returnStatusProvider" type="esbbankgbo:ReturnStatusProvider"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>	

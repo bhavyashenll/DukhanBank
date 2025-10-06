@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="urn:esbbank.com/gbo/xml/schemas/v1_0/" version="1.0"
+	xmlns:esbbankgbo="urn:esbbank.com/gbo/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+       <xsd:include schemaLocation="SchemaTypes.xsd"></xsd:include>
+
+	<xsd:complexType name="ExchangeRateRequest">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="indexRate"
+				type="xsd:integer" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="currencyCode"
+				type="xsd:string" />
+			<xsd:element name="customerNumber" type="esbbankgbo:CustomerNumber" maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" name="branchCode"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="transactionId"
+				type="xsd:string" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExchangeRateReply">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumProvider" type="esbbankgbo:ReferenceNumProvider" />
+
+			<xsd:element name="exchangeRates" minOccurs="0"
+				maxOccurs="unbounded" type="esbbankgbo:ExchangeRateRecord"></xsd:element>
+
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="returnStatus"
+				type="esbbankgbo:ReturnStatus" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="returnStatusProvider" type="esbbankgbo:ReturnStatusProvider" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="urn:esbbank.com/gbo/xml/schemas/v1_0/" version="1.0"
+	xmlns:esbbankgbo="urn:esbbank.com/gbo/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<!-- EAI Reply Structure -->
+	<xsd:element name="eAI_REPLY">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="referenceNum" type="esbbankgbo:ReferenceNum" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="referenceNumProvider" type="esbbankgbo:ReferenceNumProvider" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="requestTime" type="esbbankgbo:TimeStampStr" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="returnStatus" type="esbbankgbo:ReturnStatus" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="returnStatusProvider" type="esbbankgbo:ReturnStatusProvider" minOccurs="0" maxOccurs="1"/>
+				<xsd:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<!-- EAI Request Structure -->
+	<xsd:element name="eAI_REQUEST">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="referenceNum" type="esbbankgbo:ReferenceNum" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="requestTime" type="esbbankgbo:TimeStampStr" minOccurs="1" maxOccurs="1"/>
+				<xsd:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

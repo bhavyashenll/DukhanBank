@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NS1:eAI_MESSAGE xmlns:NS1="urn:esbbank.com/gbo/xml/schemas/v1_0/">
+    <NS1:eAI_HEADER>
+        <NS1:serviceName>EXCHANGE.RATE</NS1:serviceName>
+        <NS1:serviceType>ASYNC</NS1:serviceType>
+        <NS1:serviceVersion>1</NS1:serviceVersion>
+        <NS1:client>BARW</NS1:client>
+        <NS1:clientChannel>MOB</NS1:clientChannel>
+        <NS1:msgChannel>MQ</NS1:msgChannel>
+        <NS1:requestorLanguage>E</NS1:requestorLanguage>
+        <NS1:securityInfo>
+            <NS1:authentication>
+                <NS1:UserId>userName</NS1:UserId>
+                <NS1:Password>qx0gYnkY1nFJpjXFVKN7KQ==</NS1:Password>
+            </NS1:authentication>
+        </NS1:securityInfo>
+        <NS1:returnCode>0000</NS1:returnCode>
+    </NS1:eAI_HEADER>
+    <NS1:eAI_BODY>
+        <NS1:eAI_REPLY>
+            <NS1:exchangeRateReply>
+                <NS1:referenceNum>OCI175012779132</NS1:referenceNum>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>USD</NS1:ISOCode>
+                    <NS1:ISOCodeNum>840</NS1:ISOCodeNum>
+                    <NS1:CurName>United States Dollar</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>3.635000000</NS1:CashBuy>
+                    <NS1:CashSell>3.650000000</NS1:CashSell>
+                    <NS1:TTBuy>3.635000000</NS1:TTBuy>
+                    <NS1:TTSell>3.650000000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>AUD</NS1:ISOCode>
+                    <NS1:ISOCodeNum>36</NS1:ISOCodeNum>
+                    <NS1:CurName>Australia, Dollars</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>2.362350000</NS1:CashBuy>
+                    <NS1:CashSell>2.483500000</NS1:CashSell>
+                    <NS1:TTBuy>2.362350000</NS1:TTBuy>
+                    <NS1:TTSell>2.483500000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>NZD</NS1:ISOCode>
+                    <NS1:ISOCodeNum>554</NS1:ISOCodeNum>
+                    <NS1:CurName>New Zealand, Dollars</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>2.102020000</NS1:CashBuy>
+                    <NS1:CashSell>2.209830000</NS1:CashSell>
+                    <NS1:TTBuy>2.102020000</NS1:TTBuy>
+                    <NS1:TTSell>2.209830000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>JPY</NS1:ISOCode>
+                    <NS1:ISOCodeNum>392</NS1:ISOCodeNum>
+                    <NS1:CurName>Japan, Yen</NS1:CurName>
+                    <NS1:CurDecPoint>0</NS1:CurDecPoint>
+                    <NS1:CashBuy>0.024150000</NS1:CashBuy>
+                    <NS1:CashSell>0.025390000</NS1:CashSell>
+                    <NS1:TTBuy>0.024150000</NS1:TTBuy>
+                    <NS1:TTSell>0.025390000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>GBP</NS1:ISOCode>
+                    <NS1:ISOCodeNum>826</NS1:ISOCodeNum>
+                    <NS1:CurName>United Kingdom,Pound</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>4.840640000</NS1:CashBuy>
+                    <NS1:CashSell>5.088900000</NS1:CashSell>
+                    <NS1:TTBuy>4.840640000</NS1:TTBuy>
+                    <NS1:TTSell>5.088900000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:requestTime>20250929120630244</NS1:requestTime>
+                <NS1:returnStatus>
+                    <NS1:returnCode>0000</NS1:returnCode>
+                    <NS1:returnCodeDesc>Success</NS1:returnCodeDesc>
+                </NS1:returnStatus>
+            </NS1:exchangeRateReply>
+        </NS1:eAI_REPLY>
+    </NS1:eAI_BODY>
+</NS1:eAI_MESSAGE>                

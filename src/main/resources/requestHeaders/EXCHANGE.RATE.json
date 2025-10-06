@@ -1,0 +1,12 @@
+{
+    "headers": {
+    "serviceName": "EXCHANGE.RATE",
+    "serviceType": "ASYNC",
+    "serviceVersion": "1",
+    "client": "BARW",
+    "clientChannel": "MOB",
+    "msgChannel": "MQ",
+    "requestorLanguage": "E",
+    "returnCode": "0000"
+  }
+}

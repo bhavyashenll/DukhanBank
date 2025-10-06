@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="urn:esbbank.com/gbo/xml/schemas/v1_0/" version="1.0"
+	xmlns:esbbankgbo="urn:esbbank.com/gbo/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:include schemaLocation="SchemaTypes.xsd"></xsd:include>
+
+	<xsd:complexType name="SignOnRequest">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="customerNumber"
+				type="esbbankgbo:CustomerNumber" />
+			<xsd:element name="idNumber" type="esbbankgbo:IdNumberType"
+				maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="filter" default="ALL" maxOccurs="1"
+				minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ALL"></xsd:enumeration>
+						<xsd:enumeration value="ACCOUNTS"></xsd:enumeration>
+						<xsd:enumeration value="CARDS"></xsd:enumeration>
+						<xsd:enumeration value="CUSTOMERINFO"></xsd:enumeration>
+						<xsd:enumeration value="DPACCOUNTS"></xsd:enumeration>
+						<xsd:enumeration value="CARDS_ALL"></xsd:enumeration>
+						<xsd:enumeration value="DCARDS"></xsd:enumeration>
+						<xsd:enumeration value="PREPAIDCARDS"></xsd:enumeration>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="SignOnReply">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumProvider" type="esbbankgbo:ReferenceNumProvider" />
+
+			<xsd:element maxOccurs="1" minOccurs="0" name="customerInfo"
+				type="esbbankgbo:CustomerInfoType" />
+
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="accounts"
+				type="esbbankgbo:AccountSummaryType" />
+
+			<xsd:element name="creditCards" type="esbbankgbo:CardInfoType"
+				maxOccurs="unbounded" minOccurs="0">
+			</xsd:element>
+
+			<xsd:element name="debitCards" type="esbbankgbo:CardInfoType"
+				maxOccurs="unbounded" minOccurs="0">
+			</xsd:element>
+
+			<xsd:element name="prepaidCards" type="esbbankgbo:CardInfoType"
+				maxOccurs="unbounded" minOccurs="0">
+			</xsd:element>
+
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+
+			<xsd:element maxOccurs="1" minOccurs="1" name="returnStatus"
+				type="esbbankgbo:ReturnStatus" />
+
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="returnStatusProvider" type="esbbankgbo:ReturnStatusProvider" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

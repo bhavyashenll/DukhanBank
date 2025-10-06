@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="urn:esbbank.com/gbo/xml/schemas/v1_0/" version="1.0"
+	xmlns:esbbankgbo="urn:esbbank.com/gbo/xml/schemas/v1_0/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="CB.REPORT.LIST.xsd"></xsd:include>
+    <xsd:include schemaLocation="FETCH.CB.REPORT.xsd"></xsd:include>
+    <xsd:include schemaLocation="QCB.CREDIT.INFO.INQUIRY.xsd"></xsd:include>
+    <xsd:include schemaLocation="FCCM.KYC.CASE.STATUS.xsd"></xsd:include>
+    <xsd:include schemaLocation="FCCM.KYC.xsd"></xsd:include>
+    <xsd:include schemaLocation="SchemaTypes.xsd" />
+	<xsd:include schemaLocation="WU.MODIFYRECEIVER.STORE.xsd"></xsd:include>
+	<xsd:include schemaLocation="WU.MODIFYRECEIVER.SEARCH.xsd"></xsd:include>
+	<xsd:include schemaLocation="VODAFONE.PRODUCT.LIST.xsd"></xsd:include>
+	<xsd:include schemaLocation="VODAFONE.PRODUCTCATEGORY.xsd"></xsd:include>
+	<xsd:include schemaLocation="VODAFONE.CUSTOMER.INFO.xsd"></xsd:include>
+	<xsd:include schemaLocation="RIM.RELATIONSHIP.xsd" />
+	<xsd:include schemaLocation="MCP.UPDATE.MISSED.INFO.xsd" />
+	<xsd:include schemaLocation="MCP.CARD.NUMBER.xsd" />
+	<xsd:include schemaLocation="MCP.CARD.UNSUSPEND.xsd" />
+	<xsd:include schemaLocation="MCP.CARD.LOST.OR.STOLEN.xsd" />
+	<xsd:include schemaLocation="MCP.CARD.TO.HOLD.xsd" />
+	<xsd:include schemaLocation="MCP.UPDATE.CARDHOLDER.xsd" />
+	<xsd:include schemaLocation="MCP.CARD.AND.PURSE.INFO.xsd" />
+	<xsd:include schemaLocation="MCP.CARD.AVAILABILITY.xsd" />
+	<xsd:include schemaLocation="MCP.CARD.LIST.xsd" />
+	<xsd:include schemaLocation="MCP.TRANSACTION.HISTORY.xsd" />
+	<xsd:include schemaLocation="MCP.CARDHOLDER.DETAILS.xsd" />
+	<xsd:include schemaLocation="MCP.CLOSE.ACCOUNT.xsd" />
+	<xsd:include schemaLocation="MCP.FIND.CARDHOLDER.xsd" />
+	<xsd:include schemaLocation="MCP.GEN.MULCURCY.FXQUOTE.xsd" />
+	<xsd:include schemaLocation="MCP.LOAD.RELOAD.PURSE.xsd" />
+	<xsd:include schemaLocation="MCP.TRANSACTION.DETAILS.xsd" />
+	<xsd:include schemaLocation="MCP.PURSE.TRANS.HISTORY.xsd" />
+	<xsd:include schemaLocation="MCP.PURSE.TRANSFER.xsd" />
+	<xsd:include schemaLocation="MCP.REPLACE.CARD.xsd" />
+	<xsd:include schemaLocation="MCP.SELL.CARD.xsd" />
+	<xsd:include schemaLocation="MCP.UNLOAD.PURSE.xsd" />
+	<xsd:include schemaLocation="WU.TRANSACTION.HISTORY.xsd" />
+	<xsd:include schemaLocation="LOYALITY.POINTS.HISTORY.xsd" />
+	<xsd:include schemaLocation="WU.PAYMENT.CANCEL.xsd" />
+	<xsd:include schemaLocation="WU.ADD.BENEFICIARY.xsd" />
+	<xsd:include schemaLocation="WU.BENEFICIARY.LIST.xsd" />
+	<xsd:include schemaLocation="WU.DELETE.BENEFICIARY.xsd" />
+	<xsd:include schemaLocation="WU.UPDATE.BENEFICIARY.xsd" />
+	<xsd:include schemaLocation="WU.CARD.INQUIRY.xsd" />
+	<xsd:include schemaLocation="WU.CURRENCY.LIST.xsd" />
+	<xsd:include schemaLocation="WU.FEES.INQUIRY.xsd" />
+	<xsd:include schemaLocation="WU.MEXICO.CITY.LIST.xsd" />
+	<xsd:include schemaLocation="WU.PAYMENT.xsd" />
+	<xsd:include schemaLocation="WU.STATE.LIST.xsd" />
+	<xsd:include schemaLocation="WU.TRANSACTION.INQUIRY.xsd" />
+	<xsd:include schemaLocation="WU.COUNTRY.LIST.xsd" />
+	<xsd:include schemaLocation="QMATIC.ISSUE.TICKET.xsd" />
+	<xsd:include schemaLocation="QMATIC.SERVICE.LIST.xsd" />
+	<xsd:include schemaLocation="QPAY.xsd" />
+	<xsd:include schemaLocation="TRANSFER.xsd" />
+	<xsd:include schemaLocation="HIT.UPDATE.xsd" />
+	<xsd:include schemaLocation="REFERENCE.UPDATE.xsd" />
+	<xsd:include schemaLocation="CHECK.OUTWARD.xsd" />
+	<xsd:include schemaLocation="CHECK.INWARD.xsd" />
+	<xsd:include schemaLocation="CHECK.OUTWARD.REPLY.xsd" />
+	<xsd:include schemaLocation="CHECK.BOOK.REQUEST.xsd" />
+	<xsd:include schemaLocation="CALL.ME.BACK.xsd" />
+	<xsd:include schemaLocation="CARD.ACTIVATION.xsd" />
+	<xsd:include schemaLocation="CARD.REPLACE.xsd" />
+	<xsd:include schemaLocation="CERTIFICATE.xsd" />
+	<xsd:include schemaLocation="COMPLAINT.xsd" />
+	<xsd:include schemaLocation="CONTANT.US.xsd" />
+	<xsd:include schemaLocation="COVERED.CARD.xsd" />
+	<xsd:include schemaLocation="FINANCE.FORM.xsd" />
+	<xsd:include schemaLocation="INSTALLMENT.POSTPOND.xsd" />
+	<xsd:include schemaLocation="LINK.CARD.xsd" />
+	<xsd:include schemaLocation="OFFLINE.STATUS.xsd" />
+	<xsd:include schemaLocation="OVER.DRAFT.xsd" />
+	<xsd:include schemaLocation="STATEMENT.xsd" />
+	<xsd:include schemaLocation="FINANCIAL.POSTING.xsd" />
+	<xsd:include schemaLocation="ACCOUNT.RIM.xsd" />
+	<xsd:include schemaLocation="SIGN.ON.xsd" />
+	<xsd:include schemaLocation="CUSTOMER.BALANCE.xsd" />
+	<xsd:include schemaLocation="CUSTOMER.INFO.xsd" />
+	<xsd:include schemaLocation="DCARD.LIST.xsd" />
+	<xsd:include schemaLocation="DCARD.STATUS.UPDATE.xsd" />
+	<xsd:include schemaLocation="DCARD.PIN.VERIFICATION.xsd" />
+	<xsd:include schemaLocation="ECC.CUSTOMER.INFO.xsd" />
+	<xsd:include schemaLocation="ECC.PDC.ACCOUNT.xsd" />
+	<xsd:include schemaLocation="ACCOUNT.DETAIL.xsd" />
+	<xsd:include schemaLocation="TRANSACTION.STATEMENT.xsd" />
+	<xsd:include schemaLocation="ACCOUNT.STATEMENT.xsd" />
+	<xsd:include schemaLocation="ATM.LOCATIONS.xsd" />
+	<xsd:include schemaLocation="EMAIL.xsd" />
+	<xsd:include schemaLocation="ESBSTATUSUPDATE.xsd" />
+	<xsd:include schemaLocation="TRANS.REVERSAL.xsd" />
+	<xsd:include schemaLocation="BENEFICIARY.MANAGEMENT.xsd" />
+	<xsd:include schemaLocation="BENEFICIARY.INQUIRY.xsd" />
+	<xsd:include schemaLocation="CARD.INFO.xsd" />
+	<xsd:include schemaLocation="UTILBENEFICIARY.MGMT.xsd" />
+	<xsd:include schemaLocation="UTILBENEFICIARY.INQ.xsd" />
+	<xsd:include schemaLocation="CARD.STATEMENT.xsd" />
+	<xsd:include schemaLocation="CARD.LOSSREPORT.xsd" />
+	<xsd:include schemaLocation="CARDS.CMS.PAYMENT.xsd" />
+	<xsd:include schemaLocation="CARDS.CREATION.xsd" />
+	<xsd:include schemaLocation="CARDS.PRODUCT.INFO.xsd" />
+	<xsd:include schemaLocation="CARDS.BIN.INFO.xsd" />
+	<xsd:include schemaLocation="DEAL.INSTALLMENT.xsd" />
+	<xsd:include schemaLocation="EXCHANGE.RATE.xsd" />
+	<xsd:include schemaLocation="PRODUCT.ADD.xsd" />
+	<xsd:include schemaLocation="PROFIT.RATE.xsd" />
+	<xsd:include schemaLocation="STANDING.ORDER.SETUP.xsd" />
+	<xsd:include schemaLocation="STANDING.ORDER.INQUIRY.xsd" />
+	<xsd:include schemaLocation="STANDING.ORDER.MGM.xsd" />
+	<xsd:include schemaLocation="CARD.LOYALTY.INFO.xsd" />
+	<xsd:include schemaLocation="CBAFINANCIAL.DETAILS.xsd" />
+	<xsd:include schemaLocation="ACCOUNT.MANAGEMENT.xsd" />
+	<xsd:include schemaLocation="CUSTOMER.MANAGEMENT.xsd" />
+	<xsd:include schemaLocation="UTILITY.INQUIRY.xsd" />
+	<xsd:include schemaLocation="UTILITY.PAYMENT.xsd" />
+	<xsd:include schemaLocation="UTILITY.MANAGEMENT.xsd" />
+	<xsd:include schemaLocation="KAHRAMAA.BILL.INQUIRY.xsd" />
+	<xsd:include schemaLocation="EXTERNAL.TRANSFER.xsd" />
+	<xsd:include schemaLocation="VODAFONE.BILL.INQUIRY.xsd" />
+	<xsd:include schemaLocation="ESTATEMENT.REQUEST.xsd" />
+	<xsd:include schemaLocation="SWIFT.ACK.xsd" />
+	<xsd:include schemaLocation="CASH.ADVANCE.xsd" />
+	<xsd:include schemaLocation="LOAN.STATEMENT.xsd" />
+	<xsd:include schemaLocation="STP.VALIDATION.xsd"></xsd:include>
+	<xsd:include schemaLocation="TRANSFER.CODE.INQUIRY.xsd"></xsd:include>
+	<xsd:include schemaLocation="TRANSACTION.PURPOSE.xsd"></xsd:include>
+	<xsd:include schemaLocation="CALL.ME.BACK.EMAIL.xsd"></xsd:include>
+	<xsd:include schemaLocation="CUSTOMER.PROFILE.UPDATE.xsd"></xsd:include>
+	<xsd:include schemaLocation="FINANCE.PAYMENT.xsd"></xsd:include>
+	<xsd:include schemaLocation="CARDLESS.WITHDRAWAL.xsd"></xsd:include>
+	<xsd:include schemaLocation="HOLD.CREATES.xsd"></xsd:include>
+	<xsd:include schemaLocation="HOLD.RELEASE.xsd"></xsd:include>
+	<xsd:include schemaLocation="CREDIT.PAYMENT.AUTO.xsd"></xsd:include>
+	<xsd:include schemaLocation="DEBIT.PAYMENT.AUTO.xsd"></xsd:include>
+	<xsd:include schemaLocation="CARDLESS.WITHDRAWAL.xsd"></xsd:include>
+	<xsd:include schemaLocation="CARDLESS.WITHDRAWAL.CANCEL.xsd"></xsd:include>
+	<xsd:include schemaLocation="CARDLESS.WITHDRAWAL.INQUIRY.xsd"></xsd:include>
+	<xsd:include schemaLocation="SEND.SMS.xsd"></xsd:include>
+	<xsd:include schemaLocation="CHARITY.INQUIRY.xsd"></xsd:include>
+	<xsd:include schemaLocation="CHARITY.PAYMENT.xsd"></xsd:include>
+	<xsd:include schemaLocation="POST.CHARGE.xsd"></xsd:include>
+	<xsd:include schemaLocation="CRM.CALL.TYPES.xsd"></xsd:include>
+	<xsd:include schemaLocation="CRM.CHECK.TICKET.STATUS.xsd"></xsd:include>
+	<xsd:include schemaLocation="CRM.CREATE.TICKET.xsd"></xsd:include>
+	<xsd:include schemaLocation="CRM.TICKET.DETAILS.xsd"></xsd:include>
+	<xsd:include schemaLocation="CRM.TICKET.LIST.xsd"></xsd:include>
+	<xsd:include schemaLocation="BANK.DETAILS.xsd"></xsd:include>
+	<xsd:include schemaLocation="CARD.LINKED.ACCT.LIST.xsd"></xsd:include>
+	<xsd:include schemaLocation="CHANGE.CARD.LINKED.ACCT.xsd"></xsd:include>
+	<xsd:include schemaLocation="MANAGE.ECOMMERCE.xsd"></xsd:include>
+	<xsd:include schemaLocation="UNBLOCK.CARD.xsd"></xsd:include>
+	<xsd:include schemaLocation="CHANGE.AUTO.PAYMENT.ACCT.xsd"></xsd:include>
+	<xsd:include schemaLocation="FALLBACK.INFO.xsd"></xsd:include>
+	<xsd:include schemaLocation="CRM.SERVICE.TYPES.xsd"></xsd:include>
+	<xsd:include schemaLocation="PAYMENT.STATUS.xsd"></xsd:include>
+	<xsd:include schemaLocation="WHATIF.INQUIRY.xsd"></xsd:include>
+	<xsd:include schemaLocation="WHATIF.CALCULATE.xsd"></xsd:include>
+	<xsd:include schemaLocation="START.DEAL.xsd"></xsd:include>
+	<xsd:include schemaLocation="FORM.GENERATION.xsd"></xsd:include>
+	<xsd:include schemaLocation="FORM.ARCHIVAL.xsd"></xsd:include>
+	<xsd:include schemaLocation="DEAL.SETUP.xsd"></xsd:include>
+	
+	
+	<xsd:element name="eAI_MESSAGE" type="esbbankgbo:EAI_MESSAGE" />
+<xsd:element name="financialPostingRequest"
+				type="esbbankgbo:FinancialPostingRequest" />
+	<xsd:complexType name="EAI_MESSAGE">
+		<xsd:sequence>
+			<xsd:element name="eAI_HEADER" type="esbbankgbo:EAI_HEADER" />
+			<xsd:element name="eAI_BODY" type="esbbankgbo:EAI_BODY" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EAI_HEADER">
+		<xsd:sequence>
+			<xsd:element minOccurs="1" name="serviceName"
+				type="esbbankgbo:ServiceName" />
+			<xsd:element minOccurs="1" name="serviceType"
+				type="esbbankgbo:ServiceType" />
+			<xsd:element minOccurs="1" name="serviceVersion"
+				type="esbbankgbo:ServiceVersion" />
+			<xsd:element minOccurs="1" name="client"
+				type="esbbankgbo:Client" />
+			<xsd:element minOccurs="1" name="clientChannel"
+				type="esbbankgbo:ClientChannel" />
+			<xsd:element minOccurs="1" name="msgChannel"
+				type="esbbankgbo:MsgChannel" />
+			<xsd:element minOccurs="1" name="requestorLanguage"
+				type="esbbankgbo:RequestorLanguage" />
+			<xsd:element minOccurs="1" name="securityInfo"
+				type="esbbankgbo:SecurityInfo" />
+			<xsd:element minOccurs="0" name="eaiReference"
+				type="esbbankgbo:SnapIns" />
+			<xsd:element minOccurs="1" name="returnCode"
+				type="esbbankgbo:ReturnCode" />
+			<xsd:element minOccurs="0" name="snapIn"
+				type="esbbankgbo:SnapIns" />
+			<xsd:element minOccurs="0" maxOccurs="1" name="retryMsg"
+				type="esbbankgbo:RetryMsg" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="EAI_BODY">
+		<xsd:choice maxOccurs="1" minOccurs="1">
+			<xsd:element name="eAI_REQUEST"
+				type="esbbankgbo:EAI_REQUEST" />
+			<xsd:element name="eAI_REPLY" type="esbbankgbo:EAI_REPLY" />
+			<xsd:element name="eAI_FAULT" type="esbbankgbo:EAI_FAULT" />
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="EAI_REQUEST">
+
+		<xsd:choice maxOccurs="100" minOccurs="1">
+			<xsd:element name="WUModifyReceiverStoreRequest"
+				type="esbbankgbo:WUModifyReceiverStoreRequest">
+			</xsd:element>
+			<xsd:element name="WUModifyReceiverSearchRequest"
+				type="esbbankgbo:WUModifyReceiverSearchRequest">
+			</xsd:element>
+			<xsd:element name="vodafoneProductListRequest"
+				type="esbbankgbo:VodafoneProductListRequest">
+			</xsd:element>
+			<xsd:element name="vodafoneProductCategoriesRequest"
+				type="esbbankgbo:VodafoneProductCategoriesRequest">
+			</xsd:element>
+			<xsd:element name="vodafoneCustomerInfoRequest"
+				type="esbbankgbo:VodafoneCustomerInfoRequest">
+			</xsd:element>
+			<xsd:element name="RIMRelationshipRequest"
+				type="esbbankgbo:RIMRelationshipRequest">
+			</xsd:element>
+			<xsd:element name="MCPUpdateMissedInfoRequest"
+				type="esbbankgbo:MCPUpdateMissedInfoRequest">
+			</xsd:element>
+			<xsd:element name="MCPCardNumberRequest"
+				type="esbbankgbo:MCPCardNumberRequest">
+			</xsd:element>
+			<xsd:element name="MCPCardUnsuspendRequest"
+				type="esbbankgbo:MCPCardUnsuspendRequest">
+			</xsd:element>
+			<xsd:element name="MCPCardLostOrStolenRequest"
+				type="esbbankgbo:MCPCardLostOrStolenRequest">
+			</xsd:element>
+			<xsd:element name="MCPCardToHoldRequest"
+				type="esbbankgbo:MCPCardToHoldRequest">
+			</xsd:element>
+			<xsd:element name="MCPUpdateCardholderRequest"
+				type="esbbankgbo:MCPUpdateCardholderRequest">
+			</xsd:element>
+			<xsd:element name="MCPCardAndPurseInfoRequest"
+				type="esbbankgbo:MCPCardAndPurseInfoRequest">
+			</xsd:element>
+			<xsd:element name="MCPCardAvailabilityRequest"
+				type="esbbankgbo:MCPCardAvailabilityRequest">
+			</xsd:element>
+			<xsd:element name="MCPCardListRequest"
+				type="esbbankgbo:MCPCardListRequest">
+			</xsd:element>
+			<xsd:element name="MCPTransactionHistoryRequest"
+				type="esbbankgbo:MCPTransactionHistoryRequest">
+			</xsd:element>
+			<xsd:element name="MCPCardholderDetailsRequest"
+				type="esbbankgbo:MCPCardholderDetailsRequest">
+			</xsd:element>
+			<xsd:element name="MCPCloseAccountRequest"
+				type="esbbankgbo:MCPCloseAccountRequest">
+			</xsd:element>
+			<xsd:element name="MCPFindCardholderRequest"
+				type="esbbankgbo:MCPFindCardholderRequest">
+			</xsd:element>
+			<xsd:element name="MCPGenMulCurcyFxQuoteRequest"
+				type="esbbankgbo:MCPGenMulCurcyFxQuoteRequest">
+			</xsd:element>
+			<xsd:element name="MCPLoadReloadPurseRequest"
+				type="esbbankgbo:MCPLoadReloadPurseRequest">
+			</xsd:element>
+			<xsd:element name="MCPTransactionDetailsRequest"
+				type="esbbankgbo:MCPTransactionDetailsRequest">
+			</xsd:element>
+			<xsd:element name="MCPPurseTransHistoryRequest"
+				type="esbbankgbo:MCPPurseTransHistoryRequest">
+			</xsd:element>
+			<xsd:element name="MCPPurseTransferRequest"
+				type="esbbankgbo:MCPPurseTransferRequest">
+			</xsd:element>
+			<xsd:element name="MCPReplaceCardRequest"
+				type="esbbankgbo:MCPReplaceCardRequest">
+			</xsd:element>
+			<xsd:element name="MCPSellCardRequest"
+				type="esbbankgbo:MCPSellCardRequest">
+			</xsd:element>
+			<xsd:element name="MCPUnloadPurseRequest"
+				type="esbbankgbo:MCPUnloadPurseRequest">
+			</xsd:element>
+
+			<xsd:element name="LoyalityPointsHistoryRequest"
+				type="esbbankgbo:LoyalityPointsHistoryRequest" />
+			<xsd:element name="WUPaymentCancelRequest"
+				type="esbbankgbo:WUPaymentCancelRequest" />
+			<xsd:element name="WUAddBeneficiaryRequest"
+				type="esbbankgbo:WUAddBeneficiaryRequest" />
+			<xsd:element name="WUBeneficiaryListRequest"
+				type="esbbankgbo:WUBeneficiaryListRequest" />
+			<xsd:element name="WUDeleteBeneficiaryRequest"
+				type="esbbankgbo:WUDeleteBeneficiaryRequest" />
+			<xsd:element name="WUUpdateBeneficiaryRequest"
+				type="esbbankgbo:WUUpdateBeneficiaryRequest" />
+			<xsd:element name="WUCardInquiryRequest"
+				type="esbbankgbo:WUCardInquiryRequest" />
+			<xsd:element name="WUCurrencyListRequest"
+				type="esbbankgbo:WUCurrencyListRequest" />
+			<xsd:element name="WUFeesInquiryRequest"
+				type="esbbankgbo:WUFeesInquiryRequest" />
+			<xsd:element name="WUMexicoCityListRequest"
+				type="esbbankgbo:WUMexicoCityListRequest" />
+			<xsd:element name="WUPaymentRequest"
+				type="esbbankgbo:WUPaymentRequest" />
+			<xsd:element name="WUStateListRequest"
+				type="esbbankgbo:WUStateListRequest" />
+			<xsd:element name="WUTransactionInquiryRequest"
+				type="esbbankgbo:WUTransactionInquiryRequest" />
+			<xsd:element name="WUCountryListRequest"
+				type="esbbankgbo:WUCountryListRequest" />
+			<xsd:element name="WUTransactionHistoryRequest"
+				type="esbbankgbo:WUTransactionHistoryRequest">
+			</xsd:element>
+			<xsd:element name="QmaticServiceListRequest"
+				type="esbbankgbo:QmaticServiceListRequest" />
+			<xsd:element name="QmaticIssueTicketRequest"
+				type="esbbankgbo:QmaticIssueTicketRequest" />
+			<xsd:element name="QPayRequest"
+				type="esbbankgbo:QPayRequest" />
+			<xsd:element name="externalTransferRequest"
+				type="esbbankgbo:ExternalTransferRequest" />
+			<xsd:element name="transferRequest"
+				type="esbbankgbo:TransferRequest" />
+			<xsd:element name="balanceInqRequest"
+				type="esbbankgbo:BalanceInqRequest" />
+			<xsd:element name="profitRateRequest"
+				type="esbbankgbo:ProfitRateRequest" />
+			<xsd:element name="createAccountRequest"
+				type="esbbankgbo:CreateAccountRequest" />
+			<xsd:element name="updateAccountRequest"
+				type="esbbankgbo:UpdateAccountRequest" />
+			<xsd:element name="customerMgmtRequest"
+				type="esbbankgbo:CustomerMgmtRequest" />
+			<xsd:element name="standingOrderSetupRequest"
+				type="esbbankgbo:StandingOrderSetupRequest" />
+			<xsd:element name="signOnRequest"
+				type="esbbankgbo:SignOnRequest" />
+			<xsd:element name="productAddRequest"
+				type="esbbankgbo:ProductAddRequest" />
+			<xsd:element name="inwardLocalClearingRequest"
+				type="esbbankgbo:InwardLocalClearingRequest" />
+			<xsd:element name="accountDetailRequest"
+				type="esbbankgbo:AccountDetailRequest" />
+			<xsd:element name="accountRimRequest"
+				type="esbbankgbo:AccountRimRequest" />
+			<xsd:element name="customerInfoRequest"
+				type="esbbankgbo:CustomerInfoRequest" />
+			<xsd:element name="ecc_customerInfoRequest"
+				type="esbbankgbo:ECC_CustomerInfoRequest" />
+			<xsd:element name="outWardClearingRequest"
+				type="esbbankgbo:OutWardClearingRequest" />
+			<xsd:element name="outWardClearingReplyRequest"
+				type="esbbankgbo:OutWardClearingReplyRequest" />
+			<xsd:element name="hitUpdateRequest"
+				type="esbbankgbo:HitUpdateRequest" />
+			<xsd:element name="referenceUpdateRequest"
+				type="esbbankgbo:ReferenceUpdateRequest" />
+			<xsd:element name="serviceStatusUpdateRequest"
+				type="esbbankgbo:ServiceUpdateRequest" />
+			<xsd:element name="financialPostingRequest"
+				type="esbbankgbo:FinancialPostingRequest" />
+			<xsd:element name="ecc_PDCAccountRequest"
+				type="esbbankgbo:ECC_PDCAccountRequest" />
+			<xsd:element name="notificationRequest"
+				type="esbbankgbo:NotificationRequest" />
+			<xsd:element name="transReversalRequest"
+				type="esbbankgbo:TransReversalRequest" />
+			<xsd:element name="beneficiaryMgmtRetRequest"
+				type="esbbankgbo:BeneficiaryMgmtRetRequest" />
+			<xsd:element name="beneficiaryMgmtCorpRequest"
+				type="esbbankgbo:BeneficiaryMgmtCorpRequest" />
+			<xsd:element name="customerCardInfoRequest"
+				type="esbbankgbo:CustomerCardInfoRequest" />
+			<xsd:element name="cardStatementRequest"
+				type="esbbankgbo:CardStatementRequest" />
+			<xsd:element name="cardLossReportRequest"
+				type="esbbankgbo:CardLossReportRequest" />
+			<xsd:element name="creditCardPaymentRequest"
+				type="esbbankgbo:CreditCardPaymentRequest" />
+			<xsd:element name="statementRequest"
+				type="esbbankgbo:StatementRequest" />
+			<xsd:element name="certificateRequest"
+				type="esbbankgbo:CertificateRequest" />
+			<xsd:element name="coveredCardRequest"
+				type="esbbankgbo:CoveredCardRequest" />
+			<xsd:element name="overDraftRequest"
+				type="esbbankgbo:OverDraftRequest" />
+			<xsd:element name="installmentPostPondRequest"
+				type="esbbankgbo:InstallmentPostPondRequest" />
+			<xsd:element name="financeFormRequest"
+				type="esbbankgbo:FinanceFormRequest" />
+			<xsd:element name="offLineStatusRequest"
+				type="esbbankgbo:OffLineStatusRequest" />
+			<xsd:element name="createCardRequest"
+				type="esbbankgbo:CreateCardRequest" />
+			<xsd:element name="linkCardRequest"
+				type="esbbankgbo:LinkCardRequest" />
+			<xsd:element name="cardReplaceRequest"
+				type="esbbankgbo:CardReplaceRequest" />
+			<xsd:element name="debitCardListRequest"
+				type="esbbankgbo:DebitCardListRequest" />
+			<xsd:element name="debitCardStatusUpdateRequest"
+				type="esbbankgbo:DebitCardStatusUpdateRequest" />
+			<xsd:element name="debitCardPINVerificationRequest"
+				type="esbbankgbo:DebitCardPINVerificationRequest" />
+			<xsd:element name="getCardProductsRequest"
+				type="esbbankgbo:GetCardProductsRequest" />
+			<xsd:element name="getCardBinRequest"
+				type="esbbankgbo:GetCardBinRequest" />
+			<xsd:element name="transactionStatementRequest"
+				type="esbbankgbo:TransactionStatementRequest" />
+			<xsd:element name="accountStatementRequest"
+				type="esbbankgbo:AccountStatementRequest" />
+			<xsd:element name="installmentInqRequest"
+				type="esbbankgbo:InstallmentInqRequest" />
+			<xsd:element name="exchangeRateRequest"
+				type="esbbankgbo:ExchangeRateRequest" />
+			<xsd:element name="atmBranchLocationsRequest"
+				type="esbbankgbo:ATMBranchLocationsRequest" />
+			<xsd:element name="checkBookReqRequest"
+				type="esbbankgbo:CheckBookReqRequest" />
+			<xsd:element name="callMeBackRequest"
+				type="esbbankgbo:CallMeBackRequest" />
+			<xsd:element name="cardActivationRequest"
+				type="esbbankgbo:CardActivationRequest" />
+			<xsd:element name="complaintRequest"
+				type="esbbankgbo:ComplaintRequest" />
+			<xsd:element name="contactUsRequest"
+				type="esbbankgbo:ContactUsRequest" />
+			<xsd:element name="retailBeneficiaryInqRequest"
+				type="esbbankgbo:RetailBeneficiaryInqRequest" />
+			<xsd:element name="corpBeneficiaryInqRequest"
+				type="esbbankgbo:CorpBeneficiaryInqRequest" />
+			<xsd:element name="standingOrderInqRequest"
+				type="esbbankgbo:StandingOrderInqRequest" />
+			<xsd:element name="standingOrderMGMRequest"
+				type="esbbankgbo:StandingOrderMGMRequest" />
+			<xsd:element name="cardLoyaltyInfoRequest"
+				type="esbbankgbo:CardLoyaltyInfoRequest" />
+			<xsd:element name="cbaFinancialDetailsRequest"
+				type="esbbankgbo:CBAFinancialDetailsRequest" />
+			<xsd:element name="utilityListRequest"
+				type="esbbankgbo:UtilityListRequest" />
+			<xsd:element name="utilityBillInquiryRequest"
+				type="esbbankgbo:BillInquiryRequest" />
+			<xsd:element name="utilityBillPaymentRequest"
+				type="esbbankgbo:BillPaymentRequest" />
+			<xsd:element name="utilBeneficiaryMgmtRequest"
+				type="esbbankgbo:UtilBeneficiaryMgmtRequest" />
+			<xsd:element name="utilBeneficiaryInqRequest"
+				type="esbbankgbo:UtilBeneficiaryInqRequest" />
+			<xsd:element name="kahramaaBillInqRequest"
+				type="esbbankgbo:KahramaaBillInqRequest" />
+			<xsd:element name="vodafoneBillInqRequest"
+				type="esbbankgbo:VodafoneBillInqRequest" />
+			<xsd:element name="estatementReqRequest"
+				type="esbbankgbo:EstatementReqRequest" />
+			<xsd:element name="swiftAckRequest"
+				type="esbbankgbo:SwiftAckRequest" />
+			<xsd:element name="cashAdvanceRequest"
+				type="esbbankgbo:CashAdvanceRequest" />
+			<xsd:element name="loanStatementRequest"
+				type="esbbankgbo:LoanStatementRequest" />
+			<xsd:element name="STPValidationRequest"
+				type="esbbankgbo:STPValidationRequest">
+			</xsd:element>
+			<xsd:element name="transferCodeInquiryRequest"
+				type="esbbankgbo:TransferCodeInquiryRequest">
+			</xsd:element>
+			<xsd:element name="transactionPurposeRequest"
+				type="esbbankgbo:TransactionPurposeRequest">
+			</xsd:element>
+			<xsd:element name="callMeBackEmailRequest"
+				type="esbbankgbo:CallMeBackEmailRequest">
+			</xsd:element>
+			<xsd:element name="customerProfileUpdateRequest"
+				type="esbbankgbo:CustomerProfileUpdateRequest">
+			</xsd:element>
+			<xsd:element name="financePaymentRequest"
+				type="esbbankgbo:FinancePaymentRequest">
+			</xsd:element>
+			<xsd:element name="cardlessWithdrawalRequest"
+				type="esbbankgbo:CardlessWithdrawalRequest">
+			</xsd:element>
+			<xsd:element name="cardlessWithdrawalCanRequest"
+				type="esbbankgbo:CardlessWithdrawalCanRequest">
+			</xsd:element>
+			<xsd:element name="cardlessWithdrawalInqRequest"
+				type="esbbankgbo:CardlessWithdrawalInqRequest">
+			</xsd:element>
+			<xsd:element name="holdCreatesRequest"
+				type="esbbankgbo:HoldCreatesRequest">
+			</xsd:element>
+			<xsd:element name="holdReleaseRequest"
+				type="esbbankgbo:HoldReleaseRequest">
+			</xsd:element>
+			<xsd:element name="creditCardsPaymentAutoRequest"
+				type="esbbankgbo:CreditCardsPaymentAutoRequest">
+			</xsd:element>
+			<xsd:element name="debitCardsPaymentAutoRequest"
+				type="esbbankgbo:DebitCardsPaymentAutoRequest">
+			</xsd:element>
+			<xsd:element name="sendSMSRequest"
+				type="esbbankgbo:SendSMSRequest">
+			</xsd:element>
+			<xsd:element name="charityInquiryRequest"
+				type="esbbankgbo:CharityInquiryRequest">
+			</xsd:element>
+			<xsd:element name="charityPaymentRequest"
+				type="esbbankgbo:CharityPaymentRequest">
+			</xsd:element>
+			<xsd:element name="postChargeRequest"
+				type="esbbankgbo:PostChargeRequest">
+			</xsd:element>
+			<xsd:element name="crmCallTypesRequest"
+				type="esbbankgbo:CRMCallTypesRequest">
+			</xsd:element>
+			<xsd:element name="crmCheckTicketStatusRequest"
+				type="esbbankgbo:CRMCheckTicketStatusRequest">
+			</xsd:element>
+			<xsd:element name="crmCreateTicketRequest"
+				type="esbbankgbo:CRMCreateTicketRequest">
+			</xsd:element>
+			<xsd:element name="crmTicketDetailsRequest"
+				type="esbbankgbo:CRMTicketDetailsRequest">
+			</xsd:element>
+			<xsd:element name="crmTicketListRequest"
+				type="esbbankgbo:CRMTicketListRequest">
+			</xsd:element>
+			<xsd:element name="crmServiceTypesRequest"
+				type="esbbankgbo:CRMServiceTypesRequest">
+			</xsd:element>
+			<xsd:element name="bankDetailsRequest"
+				type="esbbankgbo:BankDetailsRequest">
+			</xsd:element>
+			<xsd:element name="cardLinkedAcctListRequest"
+				type="esbbankgbo:CardLinkedAcctListRequest">
+			</xsd:element>
+
+			<xsd:element name="changeCardLinkedAcctRequest"
+				type="esbbankgbo:ChangeCardLinkedAcctRequest">
+			</xsd:element>
+			<xsd:element name="manageECommerceRequest"
+				type="esbbankgbo:ManageECommerceRequest">
+			</xsd:element>
+			<xsd:element name="unblockCardRequest"
+				type="esbbankgbo:UnblockCardRequest">
+			</xsd:element>
+			<xsd:element name="changeAutoPaymentAcctRequest"
+				type="esbbankgbo:ChangeAutoPaymentAcctRequest">
+			</xsd:element>
+			<xsd:element name="fallbackInfoRequest"
+				type="esbbankgbo:FallbackInfoRequest">
+			</xsd:element>
+
+			<xsd:element name="FCCMOnBoardingRequest"
+				type="esbbankgbo:FCCMInitiateOnBoardingRequestType">
+			</xsd:element>
+			<xsd:element name="caseStatusRequest"
+				type="esbbankgbo:CaseStatusRequestType">
+			</xsd:element>
+
+			<xsd:element name="QCBCreditInfoInquiryRequest"
+				type="esbbankgbo:QCBCreditInfoInquiryRequestType">
+			</xsd:element>
+			<xsd:element name="FetchCBReportRequest"
+				type="esbbankgbo:FetchCBReportRequestType">
+			</xsd:element>
+			<xsd:element name="CBReportListRequest" type="esbbankgbo:CBReportListRequestType"></xsd:element>
+			<xsd:element name="PaymentStatusRequest" type="esbbankgbo:PaymentStatusRequest"></xsd:element>
+			<xsd:element name="WhatIfInqRequest" type="esbbankgbo:WhatIfInqRequest"></xsd:element>
+			<xsd:element name="WhatIfCalcRequest" type="esbbankgbo:WhatIfCalcRequest"></xsd:element>
+			<xsd:element name="StartDealRequest" type="esbbankgbo:StartDealRequest"></xsd:element>
+			<xsd:element name="FormGenRequest" type="esbbankgbo:FormGenRequest"></xsd:element>
+			<xsd:element name="FormArchRequest" type="esbbankgbo:FormArchRequest"></xsd:element>
+			<xsd:element name="DealSetupRequest" type="esbbankgbo:DealSetupRequest"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="EAI_REPLY">
+		<xsd:choice maxOccurs="100" minOccurs="1">
+			<xsd:element name="WUModifyReceiverStoreReply"
+				type="esbbankgbo:WUModifyReceiverStoreReply">
+			</xsd:element>
+			<xsd:element name="WUModifyReceiverSearchReply"
+				type="esbbankgbo:WUModifyReceiverSearchReply">
+			</xsd:element>
+			<xsd:element name="vodafoneProductListReply"
+				type="esbbankgbo:VodafoneProductListReply">
+			</xsd:element>
+			<xsd:element name="vodafoneProductCategoriesReply"
+				type="esbbankgbo:VodafoneProductCategoriesReply">
+			</xsd:element>
+			<xsd:element name="vodafoneCustomerInfoReply"
+				type="esbbankgbo:VodafoneCustomerInfoReply">
+			</xsd:element>
+			<xsd:element name="RIMRelationshipReply"
+				type="esbbankgbo:RIMRelationshipReply">
+			</xsd:element>
+			<xsd:element name="MCPUpdateMissedInfoReply"
+				type="esbbankgbo:MCPUpdateMissedInfoReply">
+			</xsd:element>
+			<xsd:element name="MCPCardNumberReply"
+				type="esbbankgbo:MCPCardNumberReply">
+			</xsd:element>
+			<xsd:element name="MCPCardUnsuspendReply"
+				type="esbbankgbo:MCPCardUnsuspendReply">
+			</xsd:element>
+			<xsd:element name="MCPCardLostOrStolenReply"
+				type="esbbankgbo:MCPCardLostOrStolenReply">
+			</xsd:element>
+			<xsd:element name="MCPCardToHoldReply"
+				type="esbbankgbo:MCPCardToHoldReply">
+			</xsd:element>
+			<xsd:element name="MCPUpdateCardholderReply"
+				type="esbbankgbo:MCPUpdateCardholderReply">
+			</xsd:element>
+			<xsd:element name="MCPCardAndPurseInfoReply"
+				type="esbbankgbo:MCPCardAndPurseInfoReply">
+			</xsd:element>
+			<xsd:element name="MCPCardAvailabilityReply"
+				type="esbbankgbo:MCPCardAvailabilityReply">
+			</xsd:element>
+			<xsd:element name="MCPCardListReply"
+				type="esbbankgbo:MCPCardListReply">
+			</xsd:element>
+			<xsd:element name="MCPTransactionHistoryReply"
+				type="esbbankgbo:MCPTransactionHistoryReply">
+			</xsd:element>
+			<xsd:element name="MCPCardholderDetailsReply"
+				type="esbbankgbo:MCPCardholderDetailsReply">
+			</xsd:element>
+			<xsd:element name="MCPCloseAccountReply"
+				type="esbbankgbo:MCPCloseAccountReply">
+			</xsd:element>
+			<xsd:element name="MCPFindCardholderReply"
+				type="esbbankgbo:MCPFindCardholderReply">
+			</xsd:element>
+			<xsd:element name="MCPGenMulCurcyFxQuoteReply"
+				type="esbbankgbo:MCPGenMulCurcyFxQuoteReply">
+			</xsd:element>
+			<xsd:element name="MCPLoadReloadPurseReply"
+				type="esbbankgbo:MCPLoadReloadPurseReply">
+			</xsd:element>
+			<xsd:element name="MCPTransactionDetailsReply"
+				type="esbbankgbo:MCPTransactionDetailsReply">
+			</xsd:element>
+			<xsd:element name="MCPPurseTransHistoryReply"
+				type="esbbankgbo:MCPPurseTransHistoryReply">
+			</xsd:element>
+			<xsd:element name="MCPPurseTransferReply"
+				type="esbbankgbo:MCPPurseTransferReply">
+			</xsd:element>
+			<xsd:element name="MCPReplaceCardReply"
+				type="esbbankgbo:MCPReplaceCardReply">
+			</xsd:element>
+			<xsd:element name="MCPSellCardReply"
+				type="esbbankgbo:MCPSellCardReply">
+			</xsd:element>
+			<xsd:element name="MCPUnloadPurseReply"
+				type="esbbankgbo:MCPUnloadPurseReply">
+			</xsd:element>
+			<xsd:element name="LoyalityPointsHistoryReply"
+				type="esbbankgbo:LoyalityPointsHistoryReply" />
+			<xsd:element name="WUPaymentCancelReply"
+				type="esbbankgbo:WUPaymentCancelReply" />
+			<xsd:element name="WUAddBeneficiaryReply"
+				type="esbbankgbo:WUAddBeneficiaryReply" />
+			<xsd:element name="WUBeneficiaryListReply"
+				type="esbbankgbo:WUBeneficiaryListReply" />
+			<xsd:element name="WUDeleteBeneficiaryReply"
+				type="esbbankgbo:WUDeleteBeneficiaryReply" />
+			<xsd:element name="WUUpdateBeneficiaryReply"
+				type="esbbankgbo:WUUpdateBeneficiaryReply" />
+			<xsd:element name="WUCardInquiryReply"
+				type="esbbankgbo:WUCardInquiryReply" />
+			<xsd:element name="WUCurrencyListReply"
+				type="esbbankgbo:WUCurrencyListReply" />
+			<xsd:element name="WUFeesInquiryReply"
+				type="esbbankgbo:WUFeesInquiryReply" />
+			<xsd:element name="WUMexicoCityListReply"
+				type="esbbankgbo:WUMexicoCityListReply" />
+			<xsd:element name="WUPaymentReply"
+				type="esbbankgbo:WUPaymentReply" />
+			<xsd:element name="WUStateListReply"
+				type="esbbankgbo:WUStateListReply" />
+			<xsd:element name="WUTransactionInquiryReply"
+				type="esbbankgbo:WUTransactionInquiryReply" />
+			<xsd:element name="WUCountryListReply"
+				type="esbbankgbo:WUCountryListReply" />
+			<xsd:element name="WUTransactionHistoryReply"
+				type="esbbankgbo:WUTransactionHistoryReply">
+			</xsd:element>
+			<xsd:element name="QmaticServiceListReply"
+				type="esbbankgbo:QmaticServiceListReply" />
+			<xsd:element name="QmaticIssueTicketReply"
+				type="esbbankgbo:QmaticIssueTicketReply" />
+			<xsd:element name="QPayReply" type="esbbankgbo:QPayReply" />
+			<xsd:element name="externalTransferReply"
+				type="esbbankgbo:ExternalTransferReply" />
+			<xsd:element name="balanceInqReply"
+				type="esbbankgbo:BalanceInqReply" />
+			<xsd:element name="profitRateReply"
+				type="esbbankgbo:ProfitRateReply" />
+			<xsd:element name="standingOrderSetupReply"
+				type="esbbankgbo:StandingOrderSetupReply" />
+			<xsd:element name="signOnReply"
+				type="esbbankgbo:SignOnReply" />
+			<xsd:element name="createAccountReply"
+				type="esbbankgbo:CreateAccountReply" />
+			<xsd:element name="updateAccountReply"
+				type="esbbankgbo:UpdateAccountReply" />
+			<xsd:element name="customerMgmtReply"
+				type="esbbankgbo:CustomerMgmtReply" />
+			<xsd:element name="utilityListReply"
+				type="esbbankgbo:UtilityListReply" />
+			<xsd:element name="accountDetailReply"
+				type="esbbankgbo:AccountDetailReply" />
+			<xsd:element name="accountRimReply"
+				type="esbbankgbo:AccountRimReply" />
+			<xsd:element name="customerInfoReply"
+				type="esbbankgbo:CustomerInfoReply" />
+			<xsd:element name="ecc_customerInfoReply"
+				type="esbbankgbo:ECC_CustomerInfoReply" />
+			<xsd:element name="outWardClearingReply"
+				type="esbbankgbo:OutWardClearingReply" />
+			<xsd:element name="outWardClearingReplyReply"
+				type="esbbankgbo:OutWardClearingReplyReply" />
+			<xsd:element name="FinancialPostingReply"
+				type="esbbankgbo:FinancialPostingReply" />
+			<xsd:element name="inwardLocalClearingReply"
+				type="esbbankgbo:InwardLocalClearingReply" />
+			<xsd:element name="ECC_PDCAccountReply"
+				type="esbbankgbo:ECC_PDCAccountReply" />
+			<xsd:element name="transReversalReply"
+				type="esbbankgbo:TransReversalReply" />
+			<xsd:element name="transferReply"
+				type="esbbankgbo:TransferReply" />
+			<xsd:element name="beneficiaryMgmtRetReply"
+				type="esbbankgbo:BeneficiaryMgmtRetReply" />
+			<xsd:element name="beneficiaryMgmtCorpReply"
+				type="esbbankgbo:BeneficiaryMgmtCorpReply" />
+			<xsd:element name="customerCardInfoReply"
+				type="esbbankgbo:CustomerCardInfoReply" />
+			<xsd:element name="cardStatementReply"
+				type="esbbankgbo:CardStatementReply" />
+			<xsd:element name="cardLossReportReply"
+				type="esbbankgbo:CardLossReportReply" />
+			<xsd:element name="creditCardPaymentReply"
+				type="esbbankgbo:CreditCardPaymentReply" />
+			<xsd:element name="createCardReply"
+				type="esbbankgbo:CreateCardReply" />
+			<xsd:element name="debitCardListReply"
+				type="esbbankgbo:DebitCardListReply" />
+			<xsd:element name="debitCardStatusUpdateReply"
+				type="esbbankgbo:DebitCardStatusUpdateReply" />
+			<xsd:element name="debitCardPINVerificationReply"
+				type="esbbankgbo:DebitCardPINVerificationReply" />
+			<xsd:element name="productAddReply"
+				type="esbbankgbo:ProductAddReply" />
+			<xsd:element name="getCardLookUpReply"
+				type="esbbankgbo:GetCardLookUpReply" />
+			<xsd:element name="transactionStatementReply"
+				type="esbbankgbo:TransactionStatementReply" />
+			<xsd:element name="accountStatementReply"
+				type="esbbankgbo:AccountStatementReply" />
+			<xsd:element name="installmentInqReply"
+				type="esbbankgbo:InstallmentInqReply" />
+			<xsd:element name="exchangeRateReply"
+				type="esbbankgbo:ExchangeRateReply" />
+			<xsd:element name="atmBranchLocationsReply"
+				type="esbbankgbo:ATMBranchLocationsReply" />
+			<xsd:element name="checkBookReqReply"
+				type="esbbankgbo:CheckBookReqReply" />
+			<xsd:element name="callMeBackReply"
+				type="esbbankgbo:CallMeBackReply" />
+			<xsd:element name="statementReply"
+				type="esbbankgbo:StatementReply" />
+			<xsd:element name="certificateReply"
+				type="esbbankgbo:CertificateReply" />
+			<xsd:element name="coveredCardReply"
+				type="esbbankgbo:CoveredCardReply" />
+			<xsd:element name="overDraftReply"
+				type="esbbankgbo:OverDraftReply" />
+			<xsd:element name="installmentPostPondReply"
+				type="esbbankgbo:InstallmentPostPondReply" />
+			<xsd:element name="financeFormReply"
+				type="esbbankgbo:FinanceFormReply" />
+			<xsd:element name="offLineStatusReply"
+				type="esbbankgbo:OffLineStatusReply" />
+			<xsd:element name="cardActivationReply"
+				type="esbbankgbo:CardActivationReply" />
+			<xsd:element name="linkCardReply"
+				type="esbbankgbo:LinkCardReply" />
+			<xsd:element name="cardReplaceReply"
+				type="esbbankgbo:CardReplaceReply" />
+			<xsd:element name="contactUsReply"
+				type="esbbankgbo:ContactUsReply" />
+			<xsd:element name="complaintReply"
+				type="esbbankgbo:ComplaintReply" />
+			<xsd:element name="retailBeneficiaryInqReply"
+				type="esbbankgbo:RetailBeneficiaryInqReply" />
+			<xsd:element name="corpBeneficiaryInqReply"
+				type="esbbankgbo:CorpBeneficiaryInqReply" />
+			<xsd:element name="standingOrderInqReply"
+				type="esbbankgbo:StandingOrderInqReply" />
+			<xsd:element name="standingOrderMGMReply"
+				type="esbbankgbo:StandingOrderMGMReply" />
+			<xsd:element name="cardLoyaltyInfoReply"
+				type="esbbankgbo:CardLoyaltyInfoReply" />
+			<xsd:element name="cbaFinancialDetailsReply"
+				type="esbbankgbo:CBAFinancialDetailsReply" />
+			<xsd:element name="utilityBillInquiryReply"
+				type="esbbankgbo:BillInquiryReply" />
+			<xsd:element name="utilityBillPaymentReply"
+				type="esbbankgbo:BillPaymentReply" />
+			<xsd:element name="utilBeneficiaryMgmtReply"
+				type="esbbankgbo:UtilBeneficiaryMgmtReply" />
+			<xsd:element name="utilBeneficiaryInqReply"
+				type="esbbankgbo:UtilBeneficiaryInqReply" />
+			<xsd:element name="kahramaaBillInqReply"
+				type="esbbankgbo:KahramaaBillInqReply" />
+			<xsd:element name="vodafoneBillInqReply"
+				type="esbbankgbo:VodafoneBillInqReply" />
+			<xsd:element name="estatementReqReply"
+				type="esbbankgbo:EstatementReqReply" />
+			<xsd:element name="swiftAckReply"
+				type="esbbankgbo:SwiftAckReply" />
+			<xsd:element name="cashAdvanceReply"
+				type="esbbankgbo:CashAdvanceReply" />
+			<xsd:element name="loanStatementReply"
+				type="esbbankgbo:LoanStatementReply" />
+			<xsd:element name="STPValidationReply"
+				type="esbbankgbo:STPValidationReply">
+			</xsd:element>
+			<xsd:element name="transferCodeInquiryReply"
+				type="esbbankgbo:TransferCodeInquiryReply">
+			</xsd:element>
+			<xsd:element name="transactionPurposeReply"
+				type="esbbankgbo:TransactionPurposeReply">
+			</xsd:element>
+			<xsd:element name="callMeBackEmailReply"
+				type="esbbankgbo:CallMeBackEmailReply">
+			</xsd:element>
+			<xsd:element name="customerProfileUpdateReply"
+				type="esbbankgbo:CustomerProfileUpdateReply">
+			</xsd:element>
+			<xsd:element name="financePaymentReply"
+				type="esbbankgbo:FinancePaymentReply">
+			</xsd:element>
+			<xsd:element name="cardlessWithdrawalReply"
+				type="esbbankgbo:CardlessWithdrawalReply">
+			</xsd:element>
+			<xsd:element name="cardlessWithdrawalCanReply"
+				type="esbbankgbo:CardlessWithdrawalCanReply">
+			</xsd:element>
+			<xsd:element name="cardlessWithdrawalInqReply"
+				type="esbbankgbo:CardlessWithdrawalInqReply">
+			</xsd:element>
+			<xsd:element name="holdCreatesReply"
+				type="esbbankgbo:HoldCreatesReply">
+			</xsd:element>
+			<xsd:element name="holdReleaseReply"
+				type="esbbankgbo:HoldReleaseReply">
+			</xsd:element>
+			<xsd:element name="creditCardsPaymentAutoReply"
+				type="esbbankgbo:CreditCardsPaymentAutoReply">
+			</xsd:element>
+			<xsd:element name="debitCardsPaymentAutoReply"
+				type="esbbankgbo:DebitCardsPaymentAutoReply">
+			</xsd:element>
+			<xsd:element name="sendSMSReply"
+				type="esbbankgbo:SendSMSReply">
+			</xsd:element>
+			<xsd:element name="charityInquiryReply"
+				type="esbbankgbo:CharityInquiryReply">
+			</xsd:element>
+			<xsd:element name="charityPaymentReply"
+				type="esbbankgbo:CharityPaymentReply">
+			</xsd:element>
+			<xsd:element name="postChargeReply"
+				type="esbbankgbo:PostChargeReply">
+			</xsd:element>
+			<xsd:element name="crmCallTypesReply"
+				type="esbbankgbo:CRMCallTypesReply">
+			</xsd:element>
+			<xsd:element name="crmCheckTicketStatusReply"
+				type="esbbankgbo:CRMCheckTicketStatusReply">
+			</xsd:element>
+			<xsd:element name="crmCreateTicketReply"
+				type="esbbankgbo:CRMCreateTicketReply">
+			</xsd:element>
+			<xsd:element name="crmTicketDetailsReply"
+				type="esbbankgbo:CRMTicketDetailsReply">
+			</xsd:element>
+			<xsd:element name="crmTicketListReply"
+				type="esbbankgbo:CRMTicketListReply">
+			</xsd:element>
+			<xsd:element name="crmServiceTypesReply"
+				type="esbbankgbo:CRMServiceTypesReply">
+			</xsd:element>
+			<xsd:element name="bankDetailsReply"
+				type="esbbankgbo:BankDetailsReply">
+			</xsd:element>
+			<xsd:element name="cardLinkedAcctListReply"
+				type="esbbankgbo:CardLinkedAcctListReply">
+			</xsd:element>
+			<xsd:element name="changeCardLinkedAcctReply"
+				type="esbbankgbo:ChangeCardLinkedAcctReply">
+			</xsd:element>
+			<xsd:element name="manageECommerceReply"
+				type="esbbankgbo:ManageECommerceReply">
+			</xsd:element>
+			<xsd:element name="unblockCardReply"
+				type="esbbankgbo:UnblockCardReply">
+			</xsd:element>
+			<xsd:element name="changeAutoPaymentAcctReply"
+				type="esbbankgbo:ChangeAutoPaymentAcctReply">
+			</xsd:element>
+			<xsd:element name="fallbackInfoReply"
+				type="esbbankgbo:FallbackInfoReply">
+			</xsd:element>
+			<xsd:element name="FCCMOnBoardingReply"
+				type="esbbankgbo:FCCMInitiateOnBoardingReplyType">
+			</xsd:element>
+			<xsd:element name="caseStatusReply"
+				type="esbbankgbo:CaseStatusReplyType">
+			</xsd:element>
+			<xsd:element name="QCBCreditInfoInquiryReply"
+				type="esbbankgbo:QCBCreditInfoInquiryReplyType">
+			</xsd:element>
+			<xsd:element name="FetchCBReportReply"
+				type="esbbankgbo:FetchCBReportReplyType">
+			</xsd:element>
+			<xsd:element name="CBReportListReply" type="esbbankgbo:CBReportListReplyType"></xsd:element>
+			<xsd:element name="PaymentStatusReply" type="esbbankgbo:PaymentStatusReply"></xsd:element>
+			<xsd:element name="WhatIfInqReply" type="esbbankgbo:WhatIfInqReply"></xsd:element>
+			<xsd:element name="WhatIfCalcReply" type="esbbankgbo:WhatIfCalcReply"></xsd:element>
+			<xsd:element name="StartDealReply" type="esbbankgbo:StartDealReply"></xsd:element>
+			<xsd:element name="FormGenReply" type="esbbankgbo:FormGenReply"></xsd:element>
+			<xsd:element name="FormArchReply" type="esbbankgbo:FormArchReply"></xsd:element>
+			<xsd:element name="DealSetupReply" type="esbbankgbo:DealSetupReply"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="EAI_FAULT">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumConsumer" type="esbbankgbo:ReferenceNumConsumer" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumProvider" type="esbbankgbo:ReferenceNumProvider" />
+			<xsd:element maxOccurs="1" minOccurs="0" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="returnStatus"
+				type="esbbankgbo:ReturnStatus" />
+			<xsd:element name="esbErrorTrace" maxOccurs="1"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>
