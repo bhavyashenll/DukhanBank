@@ -1,0 +1,12 @@
+{
+    "headers": {
+    "serviceName": "CREATE.LEAD",
+    "serviceType": "SYNC",
+    "serviceVersion": "1",
+    "client": "BKR",
+    "clientChannel": "MOB",
+    "msgChannel": "MQ",
+    "requestorLanguage": "E",
+    "returnCode": "0000"
+  }
+}

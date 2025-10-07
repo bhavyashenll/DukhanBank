@@ -19,6 +19,7 @@ public class MQServiceOrchestrator {
     
     private static final Logger logger = LoggerFactory.getLogger(MQServiceOrchestrator.class);
     
+    private final RequestValidatorService requestValidatorService;    
     private final XmlGeneratorService xmlGeneratorService;
     private final XmlParsingService xmlParsingService;
     private final XmlHeaderService headerService;
@@ -31,12 +32,14 @@ public class MQServiceOrchestrator {
                                XmlParsingService xmlParsingService,
                                XmlHeaderService headerService,
                                DummyMQService dummyMQService,
-                               AppProperties appProperties) {
+                               AppProperties appProperties,
+                               RequestValidatorService requestValidatorService) {
         this.xmlGeneratorService = xmlGeneratorService;
         this.xmlParsingService = xmlParsingService;
         this.headerService = headerService;
         this.dummyMQService = dummyMQService;
         this.appProperties = appProperties;
+        this.requestValidatorService = requestValidatorService;
     }
     
     /**
@@ -57,7 +60,7 @@ public class MQServiceOrchestrator {
             } else {
                 // Step 1: Convert JSON to XML using XSD
                 String xmlContent = convertJsonToXml(serviceName, jsonRequest);
-                logger.debug("Generated XML: {}", xmlContent);
+                logger.info("Generated XML: {}", xmlContent);
                 
                 // Step 2: Send XML to dummy MQ and get XML response
                 responseXml = dummyMQService.sendToMQ(xmlContent);
@@ -85,19 +88,19 @@ public class MQServiceOrchestrator {
      * Convert JSON request to XML using XSD schema
      * For EXCHANGE.RATE service, adds currencyCode and hardcoded indexRate=11
      */
-    private String convertJsonToXml(String serviceName, Map<String, Object> jsonRequest) throws Exception {
+    public String convertJsonToXml(String serviceName, Map<String, Object> request) throws Exception {
         logger.debug("Converting JSON to XML for service: {}", serviceName);
-        
-        // Get headers for the service
-        Map<String, Object> headers = headerService.getHeadersForService(serviceName);
-        
+
         // Create XmlConversionRequest from JSON
-        XmlConversionRequest request = new XmlConversionRequest(jsonRequest);
+        XmlConversionRequest requestXml = new XmlConversionRequest(request);           
+
+        // Inline former orchestrator steps: validate then generate
+        requestValidatorService.validateRequest(serviceName, requestXml);        
         
-        // Special handling for EXCHANGE.RATE is handled in RequestDataService
+        // Fetch headers for the service and perform actual conversion
+        Map<String, Object> headers = headerService.getHeadersForService(serviceName);     
         
-        // Generate XML using existing service
-        return xmlGeneratorService.generateXmlFromXsd(serviceName, request, headers);
+        return xmlGeneratorService.generateXmlFromXsd(serviceName, requestXml, headers);
     }
     
     private String loadMockXml(String serviceName) throws IOException {

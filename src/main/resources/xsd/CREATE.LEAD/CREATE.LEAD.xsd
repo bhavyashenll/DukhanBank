@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="urn:esbbank.com/gbo/xml/schemas/v1_0/" version="1.0"
+	xmlns:esbbankgbo="urn:esbbank.com/gbo/xml/schemas/v1_0/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:include schemaLocation="SchemaTypes.xsd"></xsd:include>
+	<xsd:complexType name="CreateLeadRequestType">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+			<xsd:element minOccurs="0" name="RimNo" type="xsd:int"/>
+			<xsd:element minOccurs="0" name="CustomerType" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="NationalID" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="FirstName" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="LastName" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="NameofPerson" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="ContactNo" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="CustomerIncome" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="ExpiryDate" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="ProductDetails" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="CustomerSegment" type="xsd:string"/>
+			<xsd:element minOccurs="1" name="TypeOfBusiness" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="Product" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="EmailId" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="Campaign" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="IncomingChannel" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="Department" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="Assignee" type="xsd:string"/>
+			<xsd:element name="requestTime"
+				type="esbbankgbo:TimeStampStr" maxOccurs="1" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CreateLeadReplyType">
+			<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="referenceNum"
+				type="esbbankgbo:ReferenceNum" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="referenceNumProvider" type="esbbankgbo:ReferenceNumProvider" />
+			<xsd:element name="ticketRefNumber" type="esbbankgbo:TicketRefNumberType" maxOccurs="1" minOccurs="0"></xsd:element>
+
+			<xsd:element maxOccurs="1" minOccurs="1" name="requestTime"
+				type="esbbankgbo:TimeStampStr" />
+			<xsd:element maxOccurs="1" minOccurs="1" name="returnStatus"
+				type="esbbankgbo:ReturnStatus" />
+			<xsd:element maxOccurs="1" minOccurs="0"
+				name="returnStatusProvider" type="esbbankgbo:ReturnStatusProvider" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	
+</xsd:schema>

@@ -24,43 +24,25 @@ public class XmlController {
     
     private static final Logger logger = LoggerFactory.getLogger(XmlController.class);
     
-    private final RequestValidatorService requestValidatorService;
-    private final XmlGeneratorService xmlGeneratorService;
     private final XmlParsingService xmlParsingService;
-    private final XmlHeaderService headerService;
+    private final MQServiceOrchestrator orchestrator;
     
     public XmlController(RequestValidatorService requestValidatorService,
                         XmlGeneratorService xmlGeneratorService,
                         XmlParsingService xmlParsingService,
                         XmlHeaderService headerService,
-                        MQServiceOrchestrator endToEndFlowService) {
-        this.requestValidatorService = requestValidatorService;
-        this.xmlGeneratorService = xmlGeneratorService;
+                        MQServiceOrchestrator endToEndFlowService, MQServiceOrchestrator orchestrator) {
         this.xmlParsingService = xmlParsingService;
-        this.headerService = headerService;
+        this.orchestrator = orchestrator;
     }
     
-    @PostMapping("/convertFromXsd")
+    @PostMapping("/convertFromXsd/{serviceName}")
     public ResponseEntity<?> convertXsdToXml(
             @PathVariable String serviceName,
             @RequestBody XmlConversionRequest request,
             @RequestHeader(value = "language", required = false) String language) throws Exception {
         
-        logger.info("Processing convert request for service: {}", serviceName);
-        
-        // Fetch headers for the service and perform actual conversion
-        Map<String, Object> headers = headerService.getHeadersForService(serviceName);
-        
-        // Set requestorLanguage based on language header if provided
-        if (language != null && !language.trim().isEmpty()) {
-            String requestorLanguage = LanguageMappingUtil.mapLanguageToRequestorLanguage(language);
-            headers.put("requestorLanguage", requestorLanguage);
-            logger.info("Set requestorLanguage to: {} based on language header: {}", requestorLanguage, language);
-        }
-        
-        // Inline former orchestrator steps: validate then generate
-        requestValidatorService.validateRequest(serviceName, request);
-        String xmlContent = xmlGeneratorService.generateXmlFromXsd(serviceName, request, headers);
+        String xmlContent = orchestrator.convertJsonToXml(serviceName, request);
         XmlResponse xmlResponse = new XmlResponse(xmlContent);
         ApiResponse<XmlResponse> response = ApiResponse.success(List.of(xmlResponse));
         

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<NS1:eAI_MESSAGE xmlns:NS1="urn:esbbank.com/gbo/xml/schemas/v1_0/">
+    <NS1:eAI_HEADER>
+        <NS1:serviceName>CRM.CREATE.LEAD</NS1:serviceName>
+        <NS1:serviceType>SYNC</NS1:serviceType>
+        <NS1:serviceVersion>1</NS1:serviceVersion>
+        <NS1:client>BKR</NS1:client>
+        <NS1:clientChannel>MOB</NS1:clientChannel>
+        <NS1:msgChannel>MQ</NS1:msgChannel>
+        <NS1:requestorLanguage>E</NS1:requestorLanguage>
+        <NS1:securityInfo>
+            <NS1:authentication>
+                <NS1:UserId>userName</NS1:UserId>
+                <NS1:Password>qx0gYnkY1nFJpjXFVKN7KQ==</NS1:Password>
+            </NS1:authentication>
+        </NS1:securityInfo>
+        <NS1:returnCode>0000</NS1:returnCode>
+    </NS1:eAI_HEADER>
+    <NS1:eAI_BODY>
+        <NS1:eAI_REPLY>
+            <NS1:CreateLeadReply>
+                <NS1:referenceNum>TESTEC2W844E33</NS1:referenceNum>
+                <NS1:ticketRefNumber>25-90-923969</NS1:ticketRefNumber>
+                <NS1:requestTime>20250428125756916</NS1:requestTime>
+                <NS1:returnStatus>
+                    <NS1:returnCode>0000</NS1:returnCode>
+                    <NS1:returnCodeDesc>SUCCESS</NS1:returnCodeDesc>
+                </NS1:returnStatus>
+                <NS1:returnStatusProvider>
+                    <NS1:returnCodeProvider>1</NS1:returnCodeProvider>
+                    <NS1:returnCodeDescProvider>S_OK</NS1:returnCodeDescProvider>
+                </NS1:returnStatusProvider>
+            </NS1:CreateLeadReply>
+        </NS1:eAI_REPLY>
+    </NS1:eAI_BODY>
+</NS1:eAI_MESSAGE>
