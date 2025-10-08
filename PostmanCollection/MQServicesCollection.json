@@ -1,0 +1,93 @@
+{
+    "info": {
+      "name": "BankServices",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "BankServices",
+        "item": [
+          {
+            "name": "profitRate",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:9092/api/profitRate",
+                "protocol": "http",
+                "host": ["localhost:9092"],
+                "path": ["api", "profitRate"]
+              }
+            }
+          },
+          {
+            "name": "create_lead & place_request",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"leadName\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"phone\": \"9876543210\"\n  }",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:9092/api/place_request/createLead",
+                "protocol": "http",
+                "host": ["localhost:9092"],
+                "path": ["api", "place_request", "createLead"]
+              }
+            },
+            "description": "Generated from cURL: curl -X POST \"http://localhost:8080/place_request/1\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"leadName\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"phone\": \"9876543210\"\n  }'\n"
+          },
+          {
+            "name": "callback",
+            "request": {
+              "method": "GET",
+              "header": [
+                { "key": "serviceId", "value": "SERVICE001" },
+                { "key": "channel", "value": "WEB" },
+                { "key": "accept-language", "value": "en" },
+                { "key": "unit", "value": "HQ" },
+                { "key": "ipAddress", "value": "192.168.1.10" },
+                { "key": "deviceId", "value": "DEVICE123" },
+                { "key": "username", "value": "johndoe" },
+                { "key": "userId", "value": "1001" },
+                { "key": "partnerId", "value": "PARTNER01" },
+                { "key": "x-correlationId", "value": "CORR12345" },
+                { "key": "authType", "value": "OAUTH" }
+              ],
+              "url": {
+                "raw": "http://localhost:9092/configurations/callback/2",
+                "protocol": "http",
+                "host": ["localhost:9092"],
+                "path": ["configurations", "callback", "2"]
+              }
+            },
+            "description": "Generated from cURL: curl -X GET \"http://localhost:8080/apply-product/callback/1\" \\\n  -H \"serviceId: SERVICE001\" \\\n  -H \"channel: WEB\" \\\n  -H \"accept-language: en\" \\\n  -H \"unit: HQ\" \\\n  -H \"ipAddress: 192.168.1.10\" \\\n  -H \"deviceId: DEVICE123\" \\\n  -H \"username: johndoe\" \\\n  -H \"userId: 1001\" \\\n  -H \"partnerId: PARTNER01\" \\\n  -H \"x-correlationId: CORR12345\" \\\n  -H \"authType: OAUTH\"\n"
+          },
+          {
+            "name": "exchangeRate",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:9092/api/exchangeRate",
+                "protocol": "http",
+                "host": ["localhost:9092"],
+                "path": ["api", "exchangeRate"]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
