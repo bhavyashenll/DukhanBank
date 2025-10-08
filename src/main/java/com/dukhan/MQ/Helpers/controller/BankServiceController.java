@@ -18,8 +18,7 @@ import java.util.Map;
 @RequestMapping("/api")
 public class BankServiceController {
 
-    private static final Logger logger = LoggerFactory.getLogger(RateController.class);
-
+    private static final Logger logger = LoggerFactory.getLogger(BankServiceController.class);
     private final MQServiceOrchestrator orchestrator;
 
     @Autowired
@@ -31,17 +30,11 @@ public class BankServiceController {
     public ResponseEntity<ApiResponse<Map<String, Object>>> placeRequest(
             @PathVariable String serviceName,
             @RequestBody Map<String, Object> jsonRequest) {
-    
-        serviceName = (serviceName.equalsIgnoreCase("createLead")) ? "CREATE.LEAD" : null;
+
+        serviceName = (serviceName.equalsIgnoreCase("createLead")) ? "CREATE.LEAD" : serviceName;
         logger.info("Received request for {}", serviceName);
-    
-        if (serviceName == null) {
-            return ResponseEntity.ok(ApiResponse.noDataFound());
-        }
-    
+
         ApiResponse<Map<String, Object>> response = orchestrator.processEndToEndFlow(serviceName, jsonRequest);
         return ResponseEntity.ok(response);
-    }    
+    }
 }
-
-

@@ -1,7 +1,7 @@
-package com.dukhan.MQ.Helpers.controller;
+package com.dukhan.MQ.Helpers.exception;
 
 import com.dukhan.MQ.Helpers.dto.ApiResponse;
-import com.dukhan.MQ.Helpers.exception.ValidationException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

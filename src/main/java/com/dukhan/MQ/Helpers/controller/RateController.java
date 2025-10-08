@@ -20,7 +20,6 @@ import java.util.Map;
 public class RateController {
 
     private static final Logger logger = LoggerFactory.getLogger(RateController.class);
-
     private final MQServiceOrchestrator orchestrator;
     private final RateService rateService;
 
@@ -40,7 +39,8 @@ public class RateController {
     }
 
     @GetMapping({"/exchangeRate", "/exchangeRate/{currencyCode}"})
-    public ResponseEntity<ApiResponse<ExchangeRateItem>> getExchangeRate(@PathVariable(value = "currencyCode", required = false) String currencyCode) {
+    public ResponseEntity<ApiResponse<ExchangeRateItem>> getExchangeRate(
+            @PathVariable(value = "currencyCode", required = false) String currencyCode) {
         final String serviceName = "EXCHANGE.RATE";
         logger.info("Received request for {} with currencyCode={}", serviceName, currencyCode);
 
@@ -53,5 +53,3 @@ public class RateController {
         return ResponseEntity.ok(transformed);
     }
 }
-
-
