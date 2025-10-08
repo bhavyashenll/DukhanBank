@@ -44,18 +44,23 @@ public class XmlGeneratorServiceImpl implements XmlGeneratorService {
     public String generateXmlFromXsd(String serviceName, XmlConversionRequest request, Map<String, Object> headers) throws Exception {
         logger.debug("Generating XML for service: {}", serviceName);
         
-        Map<String, Object> requestData = requestDataService.prepareRequestData(request, serviceName);
-        
-        Document xmlDoc = createXmlDocument();
-        Element eaiMessage = createEaiMessage(xmlDoc);
-        
-        createEaiHeader(xmlDoc, eaiMessage, headers);
-        createEaiBody(xmlDoc, eaiMessage, requestData, serviceName);
-        
-        String xmlResult = documentToString(xmlDoc);
-        logger.debug("Generated XML length: {} characters", xmlResult.length());
-        
-        return xmlResult;
+        try {
+            Map<String, Object> requestData = requestDataService.prepareRequestData(request, serviceName);
+            
+            Document xmlDoc = createXmlDocument();
+            Element eaiMessage = createEaiMessage(xmlDoc);
+            
+            createEaiHeader(xmlDoc, eaiMessage, headers);
+            createEaiBody(xmlDoc, eaiMessage, requestData, serviceName);
+            
+            String xmlResult = documentToString(xmlDoc);
+            logger.debug("Generated XML length: {} characters", xmlResult.length());
+            
+            return xmlResult;
+        } catch (Exception e) {
+            logger.error("Error generating XML for service: {}", serviceName, e);
+            throw new Exception("Failed to generate XML for service: " + serviceName, e);
+        }
     }
     
     private Document createXmlDocument() throws Exception {

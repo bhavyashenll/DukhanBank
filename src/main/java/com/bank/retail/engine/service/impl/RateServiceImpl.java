@@ -4,6 +4,8 @@ import com.bank.retail.api.dto.ApiResponse;
 import com.bank.retail.api.dto.ExchangeRateItem;
 import com.bank.retail.engine.service.RateService;
 import com.bank.retail.engine.service.CurrencyService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -16,6 +18,8 @@ import java.math.RoundingMode;
 @Service
 public class RateServiceImpl implements RateService {
 
+    private static final Logger logger = LoggerFactory.getLogger(RateServiceImpl.class);
+    
     @Value("${app.rate.digits:6}")
     private int rateDigits;
 
@@ -26,40 +30,52 @@ public class RateServiceImpl implements RateService {
     }
 
     public ApiResponse<ExchangeRateItem> postProcessExchangeRate(ApiResponse<Map<String, Object>> response) {
-        if (response == null || response.getStatus() == null || response.getData() == null) {
-            return emptyWithStatus(response);
-        }
-
-        String code = response.getStatus().getCode();
-        if (!"000000".equals(code)) {
-            return emptyWithStatus(response);
-        }
-
-        List<ExchangeRateItem> transformed = new ArrayList<>();
-
-        // Load all enabled currencies once (no need to scan response)
-        Map<String, Map<String, Object>> dbByIso = currencyService.findAllEnabled();
-
-        for (Map<String, Object> item : response.getData()) {
-            if (item == null) {
-                continue;
+        logger.debug("Post-processing exchange rate response");
+        
+        try {
+            if (response == null || response.getStatus() == null || response.getData() == null) {
+                logger.debug("Response is null or missing data, returning empty status");
+                return emptyWithStatus(response);
             }
-            ExchangeRateItem mapped = new ExchangeRateItem();
-            String isoCode = valueAsString(firstNonNull(item.get("ISOCode"), item.get("isoCode")));
-            Map<String, Object> db = (isoCode == null) ? null : dbByIso.get(isoCode.toUpperCase());
 
-            mapped.setIsoCode(valueAsString(firstNonNull(db == null ? null : db.get("isoCode"), firstNonNull(item.get("ISOCode"), item.get("isoCode")))));
-            mapped.setIsoCodeNum(valueAsString(firstNonNull(db == null ? null : db.get("isoCodeNum"), firstNonNull(item.get("ISOCodeNum"), item.get("isoCodeNum")))));
-            mapped.setCurNameEN(valueAsString(firstNonNull(db == null ? null : db.get("curNameEN"), firstNonNull(item.get("CurNameEN"), item.get("curNameEN"), item.get("CurName")))));
-            mapped.setShortCurNameEN(valueAsString(firstNonNull(db == null ? null : db.get("shortCurNameEN"), firstNonNull(item.get("ShortCurNameEN"), item.get("shortCurNameEN")))));
-            mapped.setCurNameAR(valueAsString(firstNonNull(db == null ? null : db.get("curNameAR"), firstNonNull(item.get("CurNameAR"), item.get("curNameAR")))));
-            mapped.setShortCurNameAR(valueAsString(firstNonNull(db == null ? null : db.get("shortCurNameAR"), firstNonNull(item.get("ShortCurNameAR"), item.get("shortCurNameAR")))));
-            mapped.setTtBuy(valueAsString(transformTtBuy(item)));
-            mapped.setTtSell(firstNonNull(item.get("TTSell"), item.get("ttSell")));
-            transformed.add(mapped);
+            String code = response.getStatus().getCode();
+            if (!"000000".equals(code)) {
+                logger.debug("Response status code is not success: {}", code);
+                return emptyWithStatus(response);
+            }
+
+            logger.debug("Processing {} exchange rate items", response.getData().size());
+            List<ExchangeRateItem> transformed = new ArrayList<>();
+
+            // Load all enabled currencies once (no need to scan response)
+            logger.debug("Loading all enabled currencies for mapping");
+            Map<String, Map<String, Object>> dbByIso = currencyService.findAllEnabled();
+
+            for (Map<String, Object> item : response.getData()) {
+                if (item == null) {
+                    continue;
+                }
+                ExchangeRateItem mapped = new ExchangeRateItem();
+                String isoCode = valueAsString(firstNonNull(item.get("ISOCode"), item.get("isoCode")));
+                Map<String, Object> db = (isoCode == null) ? null : dbByIso.get(isoCode.toUpperCase());
+
+                mapped.setIsoCode(valueAsString(firstNonNull(db == null ? null : db.get("isoCode"), firstNonNull(item.get("ISOCode"), item.get("isoCode")))));
+                mapped.setIsoCodeNum(valueAsString(firstNonNull(db == null ? null : db.get("isoCodeNum"), firstNonNull(item.get("ISOCodeNum"), item.get("isoCodeNum")))));
+                mapped.setCurNameEN(valueAsString(firstNonNull(db == null ? null : db.get("curNameEN"), firstNonNull(item.get("CurNameEN"), item.get("curNameEN"), item.get("CurName")))));
+                mapped.setShortCurNameEN(valueAsString(firstNonNull(db == null ? null : db.get("shortCurNameEN"), firstNonNull(item.get("ShortCurNameEN"), item.get("shortCurNameEN")))));
+                mapped.setCurNameAR(valueAsString(firstNonNull(db == null ? null : db.get("curNameAR"), firstNonNull(item.get("CurNameAR"), item.get("curNameAR")))));
+                mapped.setShortCurNameAR(valueAsString(firstNonNull(db == null ? null : db.get("shortCurNameAR"), firstNonNull(item.get("ShortCurNameAR"), item.get("shortCurNameAR")))));
+                mapped.setTtBuy(valueAsString(transformTtBuy(item)));
+                mapped.setTtSell(firstNonNull(item.get("TTSell"), item.get("ttSell")));
+                transformed.add(mapped);
+            }
+
+            logger.debug("Successfully processed {} exchange rate items", transformed.size());
+            return ApiResponse.success(transformed);
+        } catch (Exception e) {
+            logger.error("Error post-processing exchange rate response", e);
+            throw new RuntimeException("Failed to post-process exchange rate response", e);
         }
-
-        return ApiResponse.success(transformed);
     }
 
     private Object transformTtBuy(Map<String, Object> item) {

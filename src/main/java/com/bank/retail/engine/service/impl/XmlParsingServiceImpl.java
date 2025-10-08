@@ -25,40 +25,45 @@ public class XmlParsingServiceImpl implements XmlParsingService {
     public List<Map<String, Object>> parseXmlResponse(String xmlResponse) throws Exception {
         logger.debug("Parsing XML response");
         
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        
-        Document doc = builder.parse(new ByteArrayInputStream(xmlResponse.getBytes("UTF-8")));
-        
-        // Try to find eAI_REPLY elements with and without namespace
-        NodeList eaiReplyNodes = doc.getElementsByTagName("eAI_REPLY");
-        if (eaiReplyNodes.getLength() == 0) {
-            // Try with namespace prefix
-            eaiReplyNodes = doc.getElementsByTagName("NS1:eAI_REPLY");
-        }
-        if (eaiReplyNodes.getLength() == 0) {
-            // Try with local name only
-            eaiReplyNodes = doc.getElementsByTagNameNS("urn:esbbank.com/gbo/xml/schemas/v1_0/", "eAI_REPLY");
-        }
-        
-        if (eaiReplyNodes.getLength() == 0) {
-            logger.debug("No eAI_REPLY elements found");
-            return new ArrayList<>();
-        }
-        
-        List<Map<String, Object>> result = new ArrayList<>();
-        
-        for (int i = 0; i < eaiReplyNodes.getLength(); i++) {
-            Element eaiReplyElement = (Element) eaiReplyNodes.item(i);
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            DocumentBuilder builder = factory.newDocumentBuilder();
             
-            // Parse all child elements of eAI_REPLY
-            List<Map<String, Object>> replyData = parseGenericReplyData(eaiReplyElement);
-            result.addAll(replyData);
+            Document doc = builder.parse(new ByteArrayInputStream(xmlResponse.getBytes("UTF-8")));
+            
+            // Try to find eAI_REPLY elements with and without namespace
+            NodeList eaiReplyNodes = doc.getElementsByTagName("eAI_REPLY");
+            if (eaiReplyNodes.getLength() == 0) {
+                // Try with namespace prefix
+                eaiReplyNodes = doc.getElementsByTagName("NS1:eAI_REPLY");
+            }
+            if (eaiReplyNodes.getLength() == 0) {
+                // Try with local name only
+                eaiReplyNodes = doc.getElementsByTagNameNS("urn:esbbank.com/gbo/xml/schemas/v1_0/", "eAI_REPLY");
+            }
+            
+            if (eaiReplyNodes.getLength() == 0) {
+                logger.debug("No eAI_REPLY elements found");
+                return new ArrayList<>();
+            }
+            
+            List<Map<String, Object>> result = new ArrayList<>();
+            
+            for (int i = 0; i < eaiReplyNodes.getLength(); i++) {
+                Element eaiReplyElement = (Element) eaiReplyNodes.item(i);
+                
+                // Parse all child elements of eAI_REPLY
+                List<Map<String, Object>> replyData = parseGenericReplyData(eaiReplyElement);
+                result.addAll(replyData);
+            }
+            
+            logger.debug("Parsed {} data elements", result.size());
+            return result;
+        } catch (Exception e) {
+            logger.error("Error parsing XML response", e);
+            throw new Exception("Failed to parse XML response", e);
         }
-        
-        logger.debug("Parsed {} data elements", result.size());
-        return result;
     }
     
     private List<Map<String, Object>> parseGenericReplyData(Element eaiReplyElement) {
