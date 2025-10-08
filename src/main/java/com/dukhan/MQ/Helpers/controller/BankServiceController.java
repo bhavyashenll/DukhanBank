@@ -27,12 +27,12 @@ public class BankServiceController {
         this.orchestrator = orchestrator;
     }
 
-    @PostMapping("/place_request/{screen_id}")
+    @PostMapping("/place_request/{serviceName}")
     public ResponseEntity<ApiResponse<Map<String, Object>>> placeRequest(
-            @PathVariable int screen_id,
+            @PathVariable String serviceName,
             @RequestBody Map<String, Object> jsonRequest) {
     
-        final String serviceName = (screen_id == 1) ? "CREATE.LEAD" : null;
+        serviceName = (serviceName.equalsIgnoreCase("createLead")) ? "CREATE.LEAD" : null;
         logger.info("Received request for {}", serviceName);
     
         if (serviceName == null) {
