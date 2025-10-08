@@ -70,6 +70,176 @@
                     <NS1:TTBuy>4.840640000</NS1:TTBuy>
                     <NS1:TTSell>5.088900000</NS1:TTSell>
                 </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>CHF</NS1:ISOCode>
+                    <NS1:ISOCodeNum>756</NS1:ISOCodeNum>
+                    <NS1:CurName>Switzerland, Francs</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>4.506970000</NS1:CashBuy>
+                    <NS1:CashSell>4.738120000</NS1:CashSell>
+                    <NS1:TTBuy>4.506970000</NS1:TTBuy>
+                    <NS1:TTSell>4.738120000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>SGD</NS1:ISOCode>
+                    <NS1:ISOCodeNum>702</NS1:ISOCodeNum>
+                    <NS1:CurName>Singapore, Dollars</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>2.785800000</NS1:CashBuy>
+                    <NS1:CashSell>2.928680000</NS1:CashSell>
+                    <NS1:TTBuy>2.785800000</NS1:TTBuy>
+                    <NS1:TTSell>2.928680000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>CAD</NS1:ISOCode>
+                    <NS1:ISOCodeNum>124</NS1:ISOCodeNum>
+                    <NS1:CurName>Canada, Dollars</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>2.589670000</NS1:CashBuy>
+                    <NS1:CashSell>2.722490000</NS1:CashSell>
+                    <NS1:TTBuy>2.589670000</NS1:TTBuy>
+                    <NS1:TTSell>2.722490000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>DKK</NS1:ISOCode>
+                    <NS1:ISOCodeNum>208</NS1:ISOCodeNum>
+                    <NS1:CurName>Denmark, Kroner</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>0.561830000</NS1:CashBuy>
+                    <NS1:CashSell>0.590630000</NS1:CashSell>
+                    <NS1:TTBuy>0.561830000</NS1:TTBuy>
+                    <NS1:TTSell>0.593060000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>EUR</NS1:ISOCode>
+                    <NS1:ISOCodeNum>978</NS1:ISOCodeNum>
+                    <NS1:CurName>Euro</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>4.210660000</NS1:CashBuy>
+                    <NS1:CashSell>4.426610000</NS1:CashSell>
+                    <NS1:TTBuy>4.210660000</NS1:TTBuy>
+                    <NS1:TTSell>4.426610000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>SEK</NS1:ISOCode>
+                    <NS1:ISOCodeNum>752</NS1:ISOCodeNum>
+                    <NS1:CurName>Sweden - Krona</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>0.381830000</NS1:CashBuy>
+                    <NS1:CashSell>0.401410000</NS1:CashSell>
+                    <NS1:TTBuy>0.381830000</NS1:TTBuy>
+                    <NS1:TTSell>0.401410000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>SAR</NS1:ISOCode>
+                    <NS1:ISOCodeNum>682</NS1:ISOCodeNum>
+                    <NS1:CurName>Saudi Arabian Riyal</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>0.955240000</NS1:CashBuy>
+                    <NS1:CashSell>0.999220000</NS1:CashSell>
+                    <NS1:TTBuy>0.968590000</NS1:TTBuy>
+                    <NS1:TTSell>0.984560000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>KWD</NS1:ISOCode>
+                    <NS1:ISOCodeNum>414</NS1:ISOCodeNum>
+                    <NS1:CurName>Kuwaiti Dinar</NS1:CurName>
+                    <NS1:CurDecPoint>3</NS1:CurDecPoint>
+                    <NS1:CashBuy>11.736440000</NS1:CashBuy>
+                    <NS1:CashSell>12.276670000</NS1:CashSell>
+                    <NS1:TTBuy>11.900370000</NS1:TTBuy>
+                    <NS1:TTSell>12.096590000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>LKR</NS1:ISOCode>
+                    <NS1:ISOCodeNum>144</NS1:ISOCodeNum>
+                    <NS1:CurName>Sri Lanka Rupee</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>1.000000000</NS1:CashBuy>
+                    <NS1:CashSell>1.000000000</NS1:CashSell>
+                    <NS1:TTBuy>1.000000000</NS1:TTBuy>
+                    <NS1:TTSell>1.000000000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>LBP</NS1:ISOCode>
+                    <NS1:ISOCodeNum>422</NS1:ISOCodeNum>
+                    <NS1:CurName>Lebanese Pound</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>1.000000000</NS1:CashBuy>
+                    <NS1:CashSell>1.000000000</NS1:CashSell>
+                    <NS1:TTBuy>1.000000000</NS1:TTBuy>
+                    <NS1:TTSell>1.000000000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>PHP</NS1:ISOCode>
+                    <NS1:ISOCodeNum>608</NS1:ISOCodeNum>
+                    <NS1:CurName>Philippine Peso</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>1.000000000</NS1:CashBuy>
+                    <NS1:CashSell>1.000000000</NS1:CashSell>
+                    <NS1:TTBuy>1.000000000</NS1:TTBuy>
+                    <NS1:TTSell>1.000000000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>PKR</NS1:ISOCode>
+                    <NS1:ISOCodeNum>586</NS1:ISOCodeNum>
+                    <NS1:CurName>Pakistani Rupee</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>0.012700000</NS1:CashBuy>
+                    <NS1:CashSell>0.013350000</NS1:CashSell>
+                    <NS1:TTBuy>0.012700000</NS1:TTBuy>
+                    <NS1:TTSell>0.013350000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>OMR</NS1:ISOCode>
+                    <NS1:ISOCodeNum>512</NS1:ISOCodeNum>
+                    <NS1:CurName>Omani Rial</NS1:CurName>
+                    <NS1:CurDecPoint>3</NS1:CurDecPoint>
+                    <NS1:CashBuy>9.304110000</NS1:CashBuy>
+                    <NS1:CashSell>9.732390000</NS1:CashSell>
+                    <NS1:TTBuy>9.434070000</NS1:TTBuy>
+                    <NS1:TTSell>9.589630000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>BDT</NS1:ISOCode>
+                    <NS1:ISOCodeNum>50</NS1:ISOCodeNum>
+                    <NS1:CurName>Bangladeshi Taka</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>1.000000000</NS1:CashBuy>
+                    <NS1:CashSell>1.000000000</NS1:CashSell>
+                    <NS1:TTBuy>1.000000000</NS1:TTBuy>
+                    <NS1:TTSell>1.000000000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>BHD</NS1:ISOCode>
+                    <NS1:ISOCodeNum>48</NS1:ISOCodeNum>
+                    <NS1:CurName>Bahraini Dinar</NS1:CurName>
+                    <NS1:CurDecPoint>3</NS1:CurDecPoint>
+                    <NS1:CashBuy>9.500260000</NS1:CashBuy>
+                    <NS1:CashSell>9.937560000</NS1:CashSell>
+                    <NS1:TTBuy>9.632960000</NS1:TTBuy>
+                    <NS1:TTSell>9.791800000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>JOD</NS1:ISOCode>
+                    <NS1:ISOCodeNum>400</NS1:ISOCodeNum>
+                    <NS1:CurName>Jordanian Dinar</NS1:CurName>
+                    <NS1:CurDecPoint>3</NS1:CurDecPoint>
+                    <NS1:CashBuy>5.052910000</NS1:CashBuy>
+                    <NS1:CashSell>5.285500000</NS1:CashSell>
+                    <NS1:TTBuy>5.052910000</NS1:TTBuy>
+                    <NS1:TTSell>5.285500000</NS1:TTSell>
+                </NS1:exchangeRates>
+                <NS1:exchangeRates>
+                    <NS1:ISOCode>AED</NS1:ISOCode>
+                    <NS1:ISOCodeNum>784</NS1:ISOCodeNum>
+                    <NS1:CurName>United Arab Emirates</NS1:CurName>
+                    <NS1:CurDecPoint>2</NS1:CurDecPoint>
+                    <NS1:CashBuy>0.975360000</NS1:CashBuy>
+                    <NS1:CashSell>1.020250000</NS1:CashSell>
+                    <NS1:TTBuy>0.988980000</NS1:TTBuy>
+                    <NS1:TTSell>1.005290000</NS1:TTSell>
+                </NS1:exchangeRates>
                 <NS1:requestTime>20250929120630244</NS1:requestTime>
                 <NS1:returnStatus>
                     <NS1:returnCode>0000</NS1:returnCode>
@@ -78,4 +248,4 @@
             </NS1:exchangeRateReply>
         </NS1:eAI_REPLY>
     </NS1:eAI_BODY>
-</NS1:eAI_MESSAGE>                
+</NS1:eAI_MESSAGE>
