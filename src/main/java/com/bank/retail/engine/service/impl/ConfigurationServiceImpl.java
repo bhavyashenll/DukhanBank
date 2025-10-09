@@ -2,7 +2,6 @@ package com.bank.retail.engine.service.impl;
 
 import com.bank.retail.api.dto.ApiResponse;
 import com.bank.retail.api.dto.ConfigurationDto;
-import com.bank.retail.api.dto.RequestHeadersDto;
 import com.bank.retail.persistence.entity.Configuration;
 import com.bank.retail.engine.service.ConfigurationService;
 import com.bank.retail.persistence.repository.ConfigurationRepository;
@@ -26,17 +25,12 @@ public class ConfigurationServiceImpl implements ConfigurationService {
     }
 
     @Override
-    public ApiResponse<ConfigurationDto> getRequestCallbackFields(Long screenId, RequestHeadersDto headers) {
+    public ApiResponse<ConfigurationDto> getRequestCallbackFields(Long screenId) {
         logger.info("Retrieving callback fields for screen ID: {}", screenId);
         
         if (screenId == null || screenId <= 0) {
             logger.warn("Invalid screen ID provided: {}", screenId);
             throw new BusinessException("Invalid screen ID provided", "INVALID_SCREEN_ID");
-        }
-        
-        if (headers == null) {
-            logger.warn("Request headers cannot be null");
-            throw new BusinessException("Request headers cannot be null", "MISSING_HEADERS");
         }
         
         try {
