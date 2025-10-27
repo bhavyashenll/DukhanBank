@@ -1,0 +1,3 @@
+com\example\api\service\UsernameSuggestionMockServiceImplTest.class
+com\example\api\controller\UserNameSuggestionControllerTest.class
+com\example\api\ApiServiceApplicationTests.class

@@ -1,0 +1,196 @@
+{
+    "status": "SUCCESS",
+    "message": "EXCHANGE RATE request processed successfully",
+    "timestamp": "2025-10-14T13:03:53.8994749",
+    "bankResponse": {
+        "referenceNum": "OCI2173774695656",
+        "referenceNumConsumer": null,
+        "referenceNumProvider": null,
+        "exchangeRates": [
+            {
+                "isocode": "USD",
+                "isoCodeNum": "840",
+                "curName": "United States Dollar",
+                "shortCurName": "USD",
+                "ttBuy": "0.275103",
+                "ttSell": "3.650000000"
+            },
+            {
+                "isocode": "AUD",
+                "isoCodeNum": "36",
+                "curName": "Australia, Dollars",
+                "shortCurName": "AUD",
+                "ttBuy": "0.423307",
+                "ttSell": "2.483500000"
+            },
+            {
+                "isocode": "NZD",
+                "isoCodeNum": "554",
+                "curName": "New Zealand, Dollars",
+                "shortCurName": "NZD",
+                "ttBuy": "0.475733",
+                "ttSell": "2.209830000"
+            },
+            {
+                "isocode": "JPY",
+                "isoCodeNum": "392",
+                "curName": "Japan, Yen",
+                "shortCurName": "JPY",
+                "ttBuy": "41.407867",
+                "ttSell": "0.025390000"
+            },
+            {
+                "isocode": "GBP",
+                "isoCodeNum": "826",
+                "curName": "United Kingdom, Pound",
+                "shortCurName": "GBP",
+                "ttBuy": "0.206584",
+                "ttSell": "5.088900000"
+            },
+            {
+                "isocode": "CHF",
+                "isoCodeNum": "756",
+                "curName": "Switzerland, Francs",
+                "shortCurName": "CHF",
+                "ttBuy": "0.221879",
+                "ttSell": "4.738120000"
+            },
+            {
+                "isocode": "SGD",
+                "isoCodeNum": "702",
+                "curName": "Singapore, Dollars",
+                "shortCurName": "SGD",
+                "ttBuy": "0.358963",
+                "ttSell": "2.928680000"
+            },
+            {
+                "isocode": "CAD",
+                "isoCodeNum": "124",
+                "curName": "Canada, Dollars",
+                "shortCurName": "CAD",
+                "ttBuy": "0.386150",
+                "ttSell": "2.722490000"
+            },
+            {
+                "isocode": "DKK",
+                "isoCodeNum": "208",
+                "curName": "Denmark, Kroner",
+                "shortCurName": "DKK",
+                "ttBuy": "1.779898",
+                "ttSell": "0.593060000"
+            },
+            {
+                "isocode": "EUR",
+                "isoCodeNum": "978",
+                "curName": "Euro",
+                "shortCurName": "EUR",
+                "ttBuy": "0.237492",
+                "ttSell": "4.426610000"
+            },
+            {
+                "isocode": "SEK",
+                "isoCodeNum": "752",
+                "curName": "Sweden - Krona",
+                "shortCurName": "SEK",
+                "ttBuy": "2.618967",
+                "ttSell": "0.401410000"
+            },
+            {
+                "isocode": "SAR",
+                "isoCodeNum": "682",
+                "curName": "Saudi Arabian Riyal",
+                "shortCurName": "SAR",
+                "ttBuy": "1.032429",
+                "ttSell": "0.984560000"
+            },
+            {
+                "isocode": "KWD",
+                "isoCodeNum": "414",
+                "curName": "Kuwaiti Dinar",
+                "shortCurName": "KWD",
+                "ttBuy": "0.084031",
+                "ttSell": "12.096590000"
+            },
+            {
+                "isocode": "LKR",
+                "isoCodeNum": "144",
+                "curName": "Sri Lanka Rupee",
+                "shortCurName": "LKR",
+                "ttBuy": "1.000000",
+                "ttSell": "1.000000000"
+            },
+            {
+                "isocode": "LBP",
+                "isoCodeNum": "422",
+                "curName": "Lebanese Pound",
+                "shortCurName": "LBP",
+                "ttBuy": "1.000000",
+                "ttSell": "1.000000000"
+            },
+            {
+                "isocode": "PHP",
+                "isoCodeNum": "608",
+                "curName": "Philippine Peso",
+                "shortCurName": "PHP",
+                "ttBuy": "1.000000",
+                "ttSell": "1.000000000"
+            },
+            {
+                "isocode": "PKR",
+                "isoCodeNum": "586",
+                "curName": "Pakistani Rupee",
+                "shortCurName": "PKR",
+                "ttBuy": "78.740157",
+                "ttSell": "0.013350000"
+            },
+            {
+                "isocode": "OMR",
+                "isoCodeNum": "512",
+                "curName": "Omani Rial",
+                "shortCurName": "OMR",
+                "ttBuy": "0.105999",
+                "ttSell": "9.589630000"
+            },
+            {
+                "isocode": "BDT",
+                "isoCodeNum": "50",
+                "curName": "Bangladeshi Taka",
+                "shortCurName": "BDT",
+                "ttBuy": "1.000000",
+                "ttSell": "1.000000000"
+            },
+            {
+                "isocode": "BHD",
+                "isoCodeNum": "48",
+                "curName": "Bahraini Dinar",
+                "shortCurName": "BHD",
+                "ttBuy": "0.103810",
+                "ttSell": "9.791800000"
+            },
+            {
+                "isocode": "JOD",
+                "isoCodeNum": "400",
+                "curName": "Jordanian Dinar",
+                "shortCurName": "JOD",
+                "ttBuy": "0.197906",
+                "ttSell": "5.285500000"
+            },
+            {
+                "isocode": "AED",
+                "isoCodeNum": "784",
+                "curName": "United Arab Emirates",
+                "shortCurName": "AED",
+                "ttBuy": "1.011143",
+                "ttSell": "1.005290000"
+            }
+        ],
+        "requestTime": "20251014080643284",
+        "returnStatus": {
+            "returnCode": "0000",
+            "returnCodeDesc": "Success"
+        },
+        "returnStatusProvider": null,
+        "correlationId": "23e56011-d32c-4c9b-a2f4-3f6a8e358ed3"
+    },
+"errors": null
+}

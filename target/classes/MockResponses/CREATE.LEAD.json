@@ -1,0 +1,24 @@
+{
+    "status": "SUCCESS",
+    "message": "CREATE LEAD request processed successfully",
+    "timestamp": "2025-10-14T13:03:53.8994749",
+    "bankResponse": {
+        "referenceNum": "OCI2173774695656",
+        "referenceNumConsumer": null,
+        "referenceNumProvider": null,
+        "createLead": [
+            {
+                "returnCodeDescProvider": "S_OK",
+                "returnCodeProvider": "1"
+            }
+        ],
+        "requestTime": "20251014080643284",
+        "returnStatus": {
+            "returnCode": "0000",
+            "returnCodeDesc": "Success"
+        },
+        "returnStatusProvider": null,
+        "correlationId": "23e56011-d32c-4c9b-a2f4-3f6a8e358ed3"
+    },
+"errors": null
+}
