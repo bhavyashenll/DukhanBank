@@ -81,11 +81,11 @@ public class FieldValidationServiceImpl implements FieldValidationService {
 
         errors.addAll(validateExtraFields(configurations, requestData, screenName));
         
-        // Special validation for applyProducts screen - productName is mandatory but not in screen configurations
+        // Special validation for applyProducts screen - product is mandatory but not in screen configurations
         if ("applyProducts".equalsIgnoreCase(screenName)) {
-            String productName = getFieldValue(requestData, "productName");
-            if (isEmpty(productName)) {
-                errors.add("productName is required");
+            String product = getFieldValue(requestData, "product");
+            if (isEmpty(product)) {
+                errors.add("product is required");
             }
         }
 
@@ -171,9 +171,9 @@ public class FieldValidationServiceImpl implements FieldValidationService {
         return requestData.keySet().stream()
                 .filter(key -> !configuredKeys.contains(key))
                 .filter(key -> {
-                    // For applyProducts screen, exclude productName from extra fields validation
+                    // For applyProducts screen, exclude product from extra fields validation
                     // since it's mandatory but not in screen configurations
-                    if ("applyProducts".equalsIgnoreCase(screenName) && "productName".equalsIgnoreCase(key)) {
+                    if ("applyProducts".equalsIgnoreCase(screenName) && "product".equalsIgnoreCase(key)) {
                         return false;
                     }
                     return true;
