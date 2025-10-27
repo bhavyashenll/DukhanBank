@@ -1,9 +1,0 @@
-# Profanity words list - English and Arabic
-# Format: one word per line, comments start with #
-
-# English profanity words
-damn
-hell
-
-# Arabic profanity words (actual Arabic)
-أهبل
