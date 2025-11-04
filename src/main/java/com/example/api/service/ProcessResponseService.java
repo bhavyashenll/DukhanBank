@@ -12,4 +12,6 @@ public interface ProcessResponseService {
      * @return Transformed ApiResponse
      */
     ApiResponse<Map<String, Object>> transformBankResponse(Map<String, Object> bankResponse, String serviceName);
+
+    ApiResponse<Map<String, Object>> transformBankResponseForCallback(Map<String, Object> fullResponse, String serviceName);
 }
