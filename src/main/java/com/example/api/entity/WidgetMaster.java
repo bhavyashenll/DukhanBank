@@ -25,6 +25,7 @@ public class WidgetMaster
 
     @Pattern(regexp = "[YN]", message = "isActive must be 'Y' or 'N'")
     @Column(name = "status", length = 1, nullable = false)
+    @Builder.Default
     private String status = "N";
 
     @Column(name = "widget_name_en", length = 100)

@@ -1,0 +1,21 @@
+{
+    "status": "SUCCESS",
+    "message": "CRM Create Lead request processed successfully",
+    "timestamp": "2025-11-17T18:56:03.328012069",
+    "bankResponse": {
+        "referenceNum": "763405755448",
+        "referenceNumProvider": null,
+        "ticketRefNumber": "25-90-923969",
+        "requestTime": "20251117185555448",
+        "returnStatus": {
+            "returnCode": "0000",
+            "returnCodeDesc": "SUCCESS"
+        }
+    },
+    "returnStatusProvider": {
+        "returnCodeProvider": "1",
+        "returnCodeDescProvider": "S_OK"
+    },
+    "correlationId": "10fb75ca-2a33-4e20-8951-659aeela42d0",
+    "errors": null
+}

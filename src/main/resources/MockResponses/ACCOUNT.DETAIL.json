@@ -1,102 +1,102 @@
 {
-  "status": "SUCCESS",
-  "message": "Account Detail request processed successfully",
-  "timestamp": "2025-11-04T09:17:14.2541774",
-  "bankResponse": {
-      "referenceNum": "mk20131029_3",
-      "referenceNumConsumer": "mk20131029_3",
-      "referenceNumProvider": "mk20131029_3",
-      "depAcctInfo": {
-          "acctNumber": "200000070393",
-          "iban": "QA50QNBA000000000066657858001",
-          "availableBalance": "1000111.220000",
-          "currnetBalance": "1000111.220000",
-          "currencyCode": "USD",
-          "acctStatus": "Active             ",
-          "tenor": "-",
-          "availLocalCurrencyBalance": "0.000000",
-          "currentBalanceBegin": "1000111.220000",
-          "lastDepositAmount": "125.000000",
-          "lastDepositDate": "2013-10-06",
-          "lastWithdrawalAmount": "1000000.000000",
-          "lastWithdrawalDate": "2013-09-22",
-          "customerType": "N          ",
-          "passBookFlag": "N",
-          "passBookBalance": "0.000000",
-          "passBookCredits": "0.000000",
-          "passBookDebits": "13.780000",
-          "passBookLastItemPrinted": "0",
-          "passBookDescrepancyDate": "1901-01-01",
-          "relationshipUserName": {
-              "fullName": "Employee 326"
-          },
-          "relationshipUserId": "326",
-          "memoNet": "0.000000",
-          "ucfAmount": "0.000000",
-          "interestYearToDate": "0.000000",
-          "interestPaidLastYear": "0.000000",
-          "custPermId": "15450",
-          "branchId": "1",
-          "holdBal": "0.000000",
-          "noSignaturesFlag": "1",
-          "memoFlat": "0.000000",
-          "snapIn": [
-              {
-                  "nameValue": {
-                      "name": "TitleLine1",
-                      "value": "acct 200000070393"
-                  }
-              },
-              {
-                  "nameValue": {
-                      "name": "TitleLine2",
-                      "value": "acct 200000070393"
-                  }
-              },
-              {
-                  "nameValue": {
-                      "name": "AcctKey",
-                      "value": "412"
-                  }
-              },
-              {
-                  "nameValue": {
-                      "name": "Desc2",
-                      "value": "Call - Gov Sector - USD"
-                  }
-              },
-              {
-                  "nameValue": {
-                      "name": "IbaCr",
-                      "value": "N"
-                  }
-              },
-              {
-                  "nameValue": {
-                      "name": "NSF",
-                      "value": "N"
-                  }
-              },
-              {
-                  "nameValue": {
-                      "name": "AcctAvailAmt",
-                      "value": "1000111.220000"
-                  }
-              }
-          ],
-          "classCode": "412",
-          "classDesc": "Call - Gov Sector - USD"
-      },
-      "requestTime": "20131027233157568",
-      "returnStatus": {
-          "returnCode": "0000",
-          "returnCodeDesc": "Success"
-      },
-      "returnStatusProvider": {
-          "returnCodeProvider": "0",
-          "returnCodeDescProvider": "Success"
-      },
-      "correlationId": "4ee1de4d-04d0-4712-ae3d-c3ba3a7cd76c"
-  },
-  "errors": null
-}
+    "status": "SUCCESS",
+    "message": "Account Detail request processed successfully",
+    "timestamp": "2025-11-04T09:17:14.2541774",
+    "bankResponse": {
+        "referenceNum": "mk20131029_3",
+        "referenceNumConsumer": "mk20131029_3",
+        "referenceNumProvider": "mk20131029_3",
+        "depAcctInfo": {
+            "acctNumber": "200000070393",
+            "iban": "QA50QNBA000000000066657858001",
+            "availableBalance": "1000111.220000",
+            "currnetBalance": "1000111.220000",
+            "currencyCode": "USD",
+            "acctStatus": "Active             ",
+            "tenor": "-",
+            "availLocalCurrencyBalance": "0.000000",
+            "currentBalanceBegin": "1000111.220000",
+            "lastDepositAmount": "125.000000",
+            "lastDepositDate": "2013-10-06",
+            "lastWithdrawalAmount": "1000000.000000",
+            "lastWithdrawalDate": "2013-09-22",
+            "customerType": "N          ",
+            "passBookFlag": "N",
+            "passBookBalance": "0.000000",
+            "passBookCredits": "0.000000",
+            "passBookDebits": "13.780000",
+            "passBookLastItemPrinted": "0",
+            "passBookDescrepancyDate": "1901-01-01",
+            "relationshipUserName": {
+                "fullName": "Employee 326"
+            },
+            "relationshipUserId": "326",
+            "memoNet": "0.000000",
+            "ucfAmount": "0.000000",
+            "interestYearToDate": "0.000000",
+            "interestPaidLastYear": "0.000000",
+            "custPermId": "15450",
+            "branchId": "1",
+            "holdBal": "0.000000",
+            "noSignaturesFlag": "1",
+            "memoFlat": "0.000000",
+            "snapIn": [
+                {
+                    "nameValue": {
+                        "name": "TitleLine1",
+                        "value": "acct 200000070393"
+                    }
+                },
+                {
+                    "nameValue": {
+                        "name": "TitleLine2",
+                        "value": "acct 200000070393"
+                    }
+                },
+                {
+                    "nameValue": {
+                        "name": "AcctKey",
+                        "value": "412"
+                    }
+                },
+                {
+                    "nameValue": {
+                        "name": "Desc2",
+                        "value": "Call - Gov Sector - USD"
+                    }
+                },
+                {
+                    "nameValue": {
+                        "name": "IbaCr",
+                        "value": "N"
+                    }
+                },
+                {
+                    "nameValue": {
+                        "name": "NSF",
+                        "value": "N"
+                    }
+                },
+                {
+                    "nameValue": {
+                        "name": "AcctAvailAmt",
+                        "value": "1000111.220000"
+                    }
+                }
+            ],
+            "classCode": "412",
+            "classDesc": "Call - Gov Sector - USD"
+        },
+        "requestTime": "20131027233157568",
+        "returnStatus": {
+            "returnCode": "0000",
+            "returnCodeDesc": "Success"
+        },
+        "returnStatusProvider": {
+            "returnCodeProvider": "0",
+            "returnCodeDescProvider": "Success"
+        },
+        "correlationId": "4ee1de4d-04d0-4712-ae3d-c3ba3a7cd76c"
+    },
+    "errors": null
+  }

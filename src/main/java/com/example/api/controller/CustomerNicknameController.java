@@ -21,7 +21,7 @@ public class CustomerNicknameController {
     @Autowired
     private CustomerNicknameService service;
 
-    @PostMapping("/get-customer-nickname")
+    @PostMapping("/get-account-nickname")
     public ResponseEntity<Map<String, Object>> getCustomerNickname(
             @RequestHeader(name = AppConstant.HEADER_CHANNEL, required = true) String channel,
             @RequestHeader(name = AppConstant.HEADER_ACCEPT_LANGUAGE, required = false) String lang,
@@ -44,7 +44,7 @@ public class CustomerNicknameController {
         return ResponseEntity.ok(customResponse);
     }
 
-    @PostMapping("/upsert-customer-nickname")
+    @PostMapping("/upsert-account-nickname")
     public ResponseEntity<Map<String, Object>> upsertNickname(
             @RequestHeader(name = AppConstant.HEADER_CHANNEL, required = true) String channel,
             @RequestHeader(name = AppConstant.HEADER_ACCEPT_LANGUAGE, required = false) String lang,
@@ -67,7 +67,7 @@ public class CustomerNicknameController {
         return ResponseEntity.ok(customResponse);
     }
 
-    @PostMapping("/delete-customer-nickname")
+    @PostMapping("/delete-account-nickname")
     public ResponseEntity<Map<String, Object>> deleteNickname(
             @RequestHeader(name = AppConstant.HEADER_CHANNEL, required = true) String channel,
             @RequestHeader(name = AppConstant.HEADER_ACCEPT_LANGUAGE, required = false) String lang,

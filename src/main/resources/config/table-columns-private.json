@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Date",
+    "key": "date",
+    "width": 20
+  },
+  {
+    "label": "Description",
+    "key": "description",
+    "width": 50
+  },
+  {
+    "label": "Debit",
+    "key": "debit",
+    "width": 15
+  },
+  {
+    "label": "Credit",
+    "key": "credit",
+    "width": 15
+  }
+]

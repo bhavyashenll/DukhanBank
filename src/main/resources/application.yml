@@ -27,6 +27,56 @@ spring:
   main:
     allow-bean-definition-overriding: true
 
+# Statement Generation Configuration
+statement:
+  config:
+    header:
+      retail: config/headers-retail.json
+      private: config/headers-private.json
+    table:
+      retail: config/table-columns-retail.json
+      private: config/table-columns-private.json
+  color:
+    retail:
+      primary: "#1E3A8A"
+      secondary: "#3B82F6"
+    private:
+      primary: "#4B5563"
+      secondary: "#6B7280"
+  pdf:
+    rows:
+      per:
+        page: 25
+    margin:
+      top: 72
+      bottom: 72
+      left: 72
+      right: 72
+    header:
+      image:
+        path: images/DukhanBank_Statement_Header.jpg
+        private:
+          path: images/Private_DukhanBank_Statement_Header.jpg
+    footer:
+      image:
+        path: images/DukhanBank_Statement_Footer.jpg
+        private:
+          path: images/Private_DukhanBank_Statement_Footer.jpg
+  excel:
+    rows:
+      per:
+        page: 1000
+    header:
+      image:
+        path: images/DukhanBank_Statement_Header.jpg
+        private:
+          path: images/Private_DukhanBank_Statement_Header.jpg
+    footer:
+      image:
+        path: images/DukhanBank_Statement_Footer.jpg
+        private:
+          path: images/Private_DukhanBank_Statement_Footer.jpg
+
 logging:
   level:
     root: INFO

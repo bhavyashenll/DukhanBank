@@ -28,6 +28,10 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
             String dataKey;
             if(serviceName.equalsIgnoreCase("ACCOUNT.DETAIL")) {
                 dataKey = "depAcctInfo";
+            } else if(serviceName.equalsIgnoreCase("TRANSACTION.STATEMENT")) {
+                dataKey = "transactions";
+            } else if (serviceName.equalsIgnoreCase("SIGN.ON")) {
+                dataKey = "accounts";
             } else {
                 // Convert service name to camelCase (e.g., "PROFIT.RATE" -> "profitRate")
                 dataKey = convertToCamelCase(serviceName);
@@ -92,11 +96,11 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
     }
 
     @Override
-    public ApiResponse<Map<String, Object>> transformBankResponseForCallback(Map<String, Object> fullResponse, String serviceName) {
-        logger.info("Transforming bank response for callback service: {} {}", serviceName, fullResponse);
+    public ApiResponse<Map<String, Object>> transformBankResponseForProcessService(Map<String, Object> fullResponse, String serviceName) {
+        logger.info("Transforming bank response for process service: {} {}", serviceName, fullResponse);
         
         if (Objects.isNull(fullResponse)) {
-            logger.warn("Full response is null for callback service: {}", serviceName);
+            logger.warn("Full response is null for process service: {}", serviceName);
             return ApiResponse.serviceUnavailable();
         }
         
@@ -106,14 +110,14 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
             Map<String, Object> bankResponse = (Map<String, Object>) fullResponse.get("bankResponse");
             
             // Handle ERROR status
-            if (status != null && status.equalsIgnoreCase("ERROR")) {
+            if (Objects.nonNull(status) && status.equalsIgnoreCase("ERROR")) {
                 logger.info("Error case: status is ERROR for service: {}", serviceName);
                 return ApiResponse.serviceUnavailable();
             }
             
             // Handle SUCCESS status
-            if (status != null && status.equalsIgnoreCase("SUCCESS")) {
-                if (bankResponse == null) {
+            if (Objects.nonNull(status) && status.equalsIgnoreCase("SUCCESS")) {
+                if (Objects.isNull(bankResponse)) {
                     logger.warn("SUCCESS status but bankResponse is null for service: {}", serviceName);
                     return ApiResponse.badRequest();
                 }
@@ -121,7 +125,7 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
                 @SuppressWarnings("unchecked")
                 Map<String, Object> returnStatus = (Map<String, Object>) bankResponse.get("returnStatus");
                 
-                if (returnStatus == null) {
+                if (Objects.isNull(returnStatus)) {
                     logger.warn("SUCCESS status but returnStatus is null for service: {}", serviceName);
                     return ApiResponse.badRequest();
                 }
@@ -130,16 +134,18 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
                 
                 // Success case: returnCode = "0000"
                 if ("0000".equals(returnCode)) {
-                    // Extract referenceNum (ticket reference number) from bankResponse
-                    String referenceNum = (String) bankResponse.get("referenceNum");
-                    logger.info("Success case: referenceNum = {} for service: {}", referenceNum, serviceName);
-                    
-                    Map<String, Object> data = new java.util.HashMap<>();
-                    data.put("ticketRefNumber", referenceNum);
-                    
                     ApiResponse<Map<String, Object>> response = new ApiResponse<>();
                     response.setStatus(new ApiResponse.Status("000000", "Successfully processed"));
-                    response.setData(List.of(data));
+
+                    if(serviceName.equalsIgnoreCase("CRM.CREATE.TICKET") || serviceName.equalsIgnoreCase("CRM.CREATE.LEAD")) {
+                        // Extract ticketRefNumber from bankResponse for both CREATE.TICKET and CREATE.LEAD
+                        String ticketRefNumber = (String) bankResponse.get("ticketRefNumber");
+                        logger.info("Success case: ticketRefNumber = {} for service: {}", ticketRefNumber, serviceName);
+                        Map<String, Object> data = new java.util.HashMap<>();
+                        data.put("ticketRefNumber", ticketRefNumber);
+                        response.setData(List.of(data));
+                    }
+                    
                     return response;
                 } else {
                     // Bad request: returnCode is not "0000"
@@ -149,7 +155,7 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
             }
             
             // Default case: unexpected status or null status
-            logger.warn("Unexpected status '{}' in transformBankResponseForCallback for service: {}", status, serviceName);
+            logger.warn("Unexpected status '{}' in transformBankResponseForProcessService for service: {}", status, serviceName);
             return ApiResponse.badRequest();
             
         } catch (Exception e) {
@@ -158,3 +164,4 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
         }
     }
 }
+

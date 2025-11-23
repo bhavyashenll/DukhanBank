@@ -19,7 +19,7 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 @RequireDeviceInfo
 public class BankServiceController {
 

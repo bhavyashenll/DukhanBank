@@ -88,11 +88,17 @@ public class UsernameSuggestionMockServiceImpl implements UsernameSuggestionServ
         log.info("Generated {} username candidates: {}", candidates.size(), candidates);
 
         // Fetch and apply DB rules
-        List<RuleDto> rules = usernameRuleService.getRules("username", lang);
-        log.info("Retrieved {} username validation rules from DB.", rules.size());
+        List<RuleDto> rules;
+        try {
+            rules = usernameRuleService.getRules("username", lang);
+            log.info("Retrieved {} username validation rules from DB.", rules.size());
+        } catch (RuntimeException e) {
+            log.warn("No username validation rules found in DB for type=username, lang={}. Proceeding without validation: {}", lang, e.getMessage());
+            rules = Collections.emptyList(); // Proceed without rules validation
+        }
 
-        // Validate candidates
-        List<String> valid = UsernameValidator.applyUsernameRules(candidates, rules);
+        // Validate candidates (if rules exist, otherwise all candidates are considered valid)
+        List<String> valid = rules.isEmpty() ? candidates : UsernameValidator.applyUsernameRules(candidates, rules);
         log.info("{} valid usernames after applying rules.", valid.size());
 
         if (valid.isEmpty()) {

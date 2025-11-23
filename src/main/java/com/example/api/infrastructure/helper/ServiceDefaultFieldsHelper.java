@@ -6,6 +6,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
+import java.util.HashMap;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Helper class for managing default fields for different services
@@ -14,6 +18,12 @@ import java.util.Objects;
 public class ServiceDefaultFieldsHelper {
 
     private static final Logger logger = LoggerFactory.getLogger(ServiceDefaultFieldsHelper.class);
+    
+    // List of services that require that doesnot return any data but only status and message
+    private static final Set<String> PROCESSING_SERVICES = Set.of(
+        "CRM.CREATE.TICKET", "CRM.CREATE.LEAD"
+        // Add more processing services here as needed
+    );
 
     /**
      * Gets default fields for a specific service
@@ -30,8 +40,30 @@ public class ServiceDefaultFieldsHelper {
             }
 
             Map<String, Object> defaultFields = switch (serviceName.toUpperCase()) {
-                case "EXCHANGE.RATE" -> Map.of("indexRate", "11");
+                case "EXCHANGE.RATE" -> {
+                    Map<String, Object> exchangeRateFields = new HashMap<>();
+                    exchangeRateFields.put("indexRate", "11");
+                    yield exchangeRateFields;
+                }
                 case "PROFIT.RATE" -> Map.of();
+                case "CRM.CREATE.LEAD" ->{
+                    Map<String, Object> createLeadFields = new HashMap<>();
+                    createLeadFields.put("typeOfBusiness", "Contracting");
+                    createLeadFields.put("CustomerType", "NonBarwaCustomer");
+                    createLeadFields.put("RimNo", "0");
+                    createLeadFields.put("IncomingChannel", "MB");
+                    yield createLeadFields;
+                }
+                case "TRANSACTION.STATEMENT" -> {
+                    // Calculate dates: toDate = current date, fromDate = toDate - 6 months
+                    LocalDate toDate = LocalDate.now();
+                    LocalDate fromDate = toDate.minusMonths(6);
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                    Map<String, Object> dateFields = new HashMap<>();
+                    dateFields.put("searchBy.period.toDate", toDate.format(formatter));
+                    dateFields.put("searchBy.period.fromDate", fromDate.format(formatter));
+                    yield dateFields;
+                }
                 default -> Map.of();
             };
             
@@ -79,8 +111,8 @@ public class ServiceDefaultFieldsHelper {
         }
         
         String serviceName = switch (screenName.toLowerCase()) {
-            case "callback" -> "CREATE.TICKET";
-            case "applyproducts" -> "CREATE.LEAD";
+            case "callback" -> "CRM.CREATE.TICKET";
+            case "applyproducts" -> "CRM.CREATE.LEAD";
             default -> {
                 logger.warn("Unknown screenName: {}, using default service name", screenName);
                 yield "DEFAULT.SERVICE";
@@ -92,26 +124,47 @@ public class ServiceDefaultFieldsHelper {
     }
 
     /**
-     * Derives serviceType from screenName based on mapping rules
+     * Derives static fields from screenName based on mapping rules
      * @param screenName the screen name from header
-     * @return the corresponding service type
+     * @return Map of static field names and values to be added to parameters
      */
-    public String deriveServiceTypeFromScreenName(String screenName) {
+    public Map<String, Object> deriveStaticFieldsFromScreenName(String screenName) {
         if (Objects.isNull(screenName)) {
-            logger.warn("ScreenName is null, using default service type");
-            return "DEFAULT_SERVICE_TYPE";
+            logger.warn("ScreenName is null, returning empty static fields");
+            return Map.of();
         }
         
-        String serviceType = switch (screenName.toLowerCase()) {
-            case "applyproducts" -> "Finance_ApplyProducts";
-            case "callback" -> "General_Callback";
+        Map<String, Object> staticFields = switch (screenName.toLowerCase()) {
+            case "applyproducts" -> Map.of("serviceType", "Finance_ApplyProducts");
+            case "callback" -> Map.of(
+                "serviceType", "General_ContactRequest",
+                "customerType", "NonBarwaCustomer",
+                "title", "Contact Request",
+                "callType", "Request"
+            );
             default -> {
-                logger.warn("Unknown screenName: {}, using default service type", screenName);
-                yield "DEFAULT_SERVICE_TYPE";
+                logger.warn("Unknown screenName: {}, returning empty static fields", screenName);
+                yield Map.of();
             }
         };
         
-        logger.info("Derived serviceType: {} from screenName: {}", serviceType, screenName);
-        return serviceType;
+        logger.info("Derived static fields: {} from screenName: {}", staticFields, screenName);
+        return staticFields;
+    }
+
+    /**
+     * Checks if a service name requires that doesnot return any data but only status and message
+     * @param serviceName The service name to check
+     * @return true if the service requires processing, false otherwise
+     */
+    public boolean findIfProcessingService(String serviceName) {
+        if (Objects.isNull(serviceName)) {
+            logger.debug("Service name is null, returning false");
+            return false;
+        }
+        
+        boolean isProcessingService = PROCESSING_SERVICES.contains(serviceName);
+        logger.debug("Service {} is {} a processing service", serviceName, isProcessingService ? "" : "not");
+        return isProcessingService;
     }
 }

@@ -1,0 +1,22 @@
+{
+   "status": "success",
+   "message": "CRM Create Ticket request processed successfully",
+   "timestamp": "2025-10-29T11:41:15.200601",
+   "bankResponse":    {
+      "referenceNum": "761727270957",
+      "referenceNumConsumer": "761727270957",
+      "ticketRefNumber": "20251012122444-87933",       
+      "referenceNumProvider": null,
+      "requestTime": "20251029114110958",
+      "returnStatus":       {
+         "returnCode": "0000",
+         "returnCodeDesc": "SUCCESS"
+      },
+      "returnStatusProvider":       {
+         "returnCodeProvider": "1",
+         "returnCodeDescProvider": "S_OK"
+      },
+      "correlationId": "d2c88f98-5b2d-458e-811f-a7268a4c2a74"
+   },
+   "errors": null
+ }

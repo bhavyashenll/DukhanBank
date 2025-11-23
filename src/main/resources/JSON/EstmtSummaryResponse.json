@@ -1,0 +1,341 @@
+{
+    "resultSet": {
+        "message": "Data fetched successfully.",
+        "status": "0",
+        "errorFlag": null,
+        "requestReferenceNumber": null,
+        "transactionReferenceNo": null,
+        "processID": "86217"
+    },
+    "estatementSettings": [
+        {
+            "lastSendDate": "-",
+            "estatementID": "881727",
+            "estatementCycle": "D",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881722",
+            "estatementCycle": "M",
+            "estatementFormat": "M",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881724",
+            "estatementCycle": "W",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881723",
+            "estatementCycle": "W",
+            "estatementFormat": "P",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881739",
+            "estatementCycle": "D",
+            "estatementFormat": "H",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881681",
+            "estatementCycle": "M",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881684",
+            "estatementCycle": "D",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881714",
+            "estatementCycle": "M",
+            "estatementFormat": "H",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881699",
+            "estatementCycle": "D",
+            "estatementFormat": "S",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881698",
+            "estatementCycle": "W",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881711",
+            "estatementCycle": "Q",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881708",
+            "estatementCycle": "D",
+            "estatementFormat": "P",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881712",
+            "estatementCycle": "M",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881680",
+            "estatementCycle": "M",
+            "estatementFormat": "S",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881682",
+            "estatementCycle": "M",
+            "estatementFormat": "P",
+            "estatementAccount": "022212070260010010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881685",
+            "estatementCycle": "D",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881709",
+            "estatementCycle": "Q",
+            "estatementFormat": "H",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881720",
+            "estatementCycle": "M",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881705",
+            "estatementCycle": "Q",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881713",
+            "estatementCycle": "W",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881715",
+            "estatementCycle": "D",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881683",
+            "estatementCycle": "D",
+            "estatementFormat": "H",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881726",
+            "estatementCycle": "M",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881706",
+            "estatementCycle": "M",
+            "estatementFormat": "P",
+            "estatementAccount": "022212070260010040001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881710",
+            "estatementCycle": "Q",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881675",
+            "estatementCycle": "D",
+            "estatementFormat": "H",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881634",
+            "estatementCycle": "D",
+            "estatementFormat": "P",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881636",
+            "estatementCycle": "W",
+            "estatementFormat": "H",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881679",
+            "estatementCycle": "Q",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881707",
+            "estatementCycle": "M",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881676",
+            "estatementCycle": "D",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881678",
+            "estatementCycle": "Q",
+            "estatementFormat": "H",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881637",
+            "estatementCycle": "W",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881725",
+            "estatementCycle": "M",
+            "estatementFormat": "S",
+            "estatementAccount": "022212070260010042000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881635",
+            "estatementCycle": "M",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260010042001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881672",
+            "estatementCycle": "D",
+            "estatementFormat": "M",
+            "estatementAccount": "022212070260010042001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881700",
+            "estatementCycle": "M",
+            "estatementFormat": "M",
+            "estatementAccount": "022212070260010042001"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881674",
+            "estatementCycle": "Q",
+            "estatementFormat": "H",
+            "estatementAccount": "022212070260020010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881701",
+            "estatementCycle": "M",
+            "estatementFormat": "M",
+            "estatementAccount": "022212070260020010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881740",
+            "estatementCycle": "Q",
+            "estatementFormat": "S",
+            "estatementAccount": "022212070260020010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881738",
+            "estatementCycle": "W",
+            "estatementFormat": "X",
+            "estatementAccount": "022212070260020040000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881721",
+            "estatementCycle": "W",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260030010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881718",
+            "estatementCycle": "W",
+            "estatementFormat": "M",
+            "estatementAccount": "022212070260030010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881704",
+            "estatementCycle": "Q",
+            "estatementFormat": "C",
+            "estatementAccount": "022212070260030040000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881702",
+            "estatementCycle": "M",
+            "estatementFormat": "S",
+            "estatementAccount": "022212070260030040000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881703",
+            "estatementCycle": "D",
+            "estatementFormat": "P",
+            "estatementAccount": "022212070260690010000"
+        },
+        {
+            "lastSendDate": "-",
+            "estatementID": "881719",
+            "estatementCycle": "D",
+            "estatementFormat": "M",
+            "estatementAccount": "022212070260690010000"
+        }
+    ]
+}

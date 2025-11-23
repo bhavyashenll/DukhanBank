@@ -1,0 +1,62 @@
+[
+  {
+    "label": "Dear",
+    "key": "greeting",
+    "position": "left",
+    "type": "greeting"
+  },
+  {
+    "label": "Below is an e-Statement of your Account",
+    "key": "subtitle",
+    "position": "left",
+    "type": "subtitle"
+  },
+  {
+    "label": "Statement Date",
+    "key": "statementDate",
+    "position": "right"
+  },
+  {
+    "label": "Statement Period",
+    "key": "statementPeriod",
+    "position": "right"
+  },
+  {
+    "label": "Currency",
+    "key": "currency",
+    "position": "right"
+  },
+  {
+    "label": "Customer No",
+    "key": "customerNo",
+    "position": "right",
+    "bold": true
+  },
+  {
+    "label": "Account Type",
+    "key": "accountType",
+    "position": "right"
+  },
+  {
+    "label": "Account No",
+    "key": "accountNumber",
+    "position": "right",
+    "bold": true
+  },
+  {
+    "label": "IBAN",
+    "key": "iban",
+    "position": "right",
+    "bold": true
+  },
+  {
+    "label": "Current Balance",
+    "key": "currentBalance",
+    "position": "right"
+  },
+  {
+    "label": "Available Balance",
+    "key": "availableBalance",
+    "position": "right"
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "headerData": {
+    "accountNumber": "1234567890",
+    "accountHolderName": "John Doe",
+    "accountType": "Savings Account",
+    "branchName": "Main Branch",
+    "ifscCode": "BANK0001234",
+    "statementPeriod": "01/01/2024 - 31/01/2024",
+    "openingBalance": "50000.00",
+    "closingBalance": "75000.00"
+  },
+  "transactions": [
+    {
+      "date": "02/01/2024",
+      "description": "Salary Credit",
+      "reference": "SAL20240102",
+      "debit": null,
+      "credit": 50000.00,
+      "balance": 100000.00
+    },
+    {
+      "date": "05/01/2024",
+      "description": "ATM Withdrawal",
+      "reference": "ATM20240105",
+      "debit": 5000.00,
+      "credit": null,
+      "balance": 95000.00
+    },
+    {
+      "date": "10/01/2024",
+      "description": "Online Transfer",
+      "reference": "TRF20240110",
+      "debit": 10000.00,
+      "credit": null,
+      "balance": 85000.00
+    },
+    {
+      "date": "15/01/2024",
+      "description": "Interest Credit",
+      "reference": "INT20240115",
+      "debit": null,
+      "credit": 500.00,
+      "balance": 85500.00
+    },
+    {
+      "date": "20/01/2024",
+      "description": "Bill Payment",
+      "reference": "BP20240120",
+      "debit": 5000.00,
+      "credit": null,
+      "balance": 80500.00
+    },
+    {
+      "date": "25/01/2024",
+      "description": "Deposit",
+      "reference": "DEP20240125",
+      "debit": null,
+      "credit": 20000.00,
+      "balance": 100500.00
+    },
+    {
+      "date": "28/01/2024",
+      "description": "Service Charge",
+      "reference": "SC20240128",
+      "debit": 500.00,
+      "credit": null,
+      "balance": 100000.00
+    },
+    {
+      "date": "30/01/2024",
+      "description": "Refund",
+      "reference": "REF20240130",
+      "debit": null,
+      "credit": 25000.00,
+      "balance": 125000.00
+    },
+    {
+      "date": "31/01/2024",
+      "description": "Monthly Charges",
+      "reference": "MC20240131",
+      "debit": 50000.00,
+      "credit": null,
+      "balance": 75000.00
+    }
+  ]
+}
+

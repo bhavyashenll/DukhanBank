@@ -1,0 +1,221 @@
+{
+    "status": "SUCCESS",
+    "message": "Transaction Statement request processed successfully",
+    "timestamp": "2025-11-12T23:01:31.5976436",
+    "bankResponse": {
+        "referenceNum": "9823423400430",
+        "referenceNumConsumer": "9823423400430",
+        "forAccount": {
+            "acctNumber": "100003049861"
+        },
+        "searchBy": {
+            "noOfTransactions": null,
+            "period": {
+                "fromDate": "2012-03-19",
+                "toDate": "2012-05-18"
+            }
+        },
+        "transactions": [
+            {
+                "transactionDesc": "Salary Credit - March 2012",
+                "transactionType": "CR",
+                "postingDate": "2012-03-20T09:15:30.123",
+                "transactionAmount": "15000",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-03-20",
+                "originTracerNumber": "SAL20220320001"
+            },
+            {
+                "transactionDesc": "ATM Withdrawal - Branch 001",
+                "transactionType": "DR",
+                "postingDate": "2012-03-21T14:22:45.567",
+                "transactionAmount": "500",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-03-21",
+                "originTracerNumber": "ATM0321142201"
+            },
+            {
+                "transactionDesc": "Mobile Payment - Utility Bill",
+                "transactionType": "DR",
+                "postingDate": "2012-03-22T11:30:15.789",
+                "transactionAmount": "250",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-03-22",
+                "originTracerNumber": "MOB0322113001"
+            },
+            {
+                "transactionDesc": "Funds Transfer Fees",
+                "transactionType": "DR",
+                "postingDate": "2012-03-24T10:16:19.293",
+                "transactionAmount": "6",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-03-24",
+                "originTracerNumber": "RIB7948890633"
+            },
+            {
+                "transactionDesc": "Cheque Deposit - Cheque No 123456",
+                "transactionType": "CR",
+                "postingDate": "2012-03-25T16:45:20.456",
+                "transactionAmount": "3000",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-03-25",
+                "originTracerNumber": "CHQ0325164501"
+            },
+            {
+                "transactionDesc": "Standing Order - Rent Payment",
+                "transactionType": "DR",
+                "postingDate": "2012-03-28T08:00:00.000",
+                "transactionAmount": "4000",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-03-28",
+                "originTracerNumber": "SO0328080001"
+            },
+            {
+                "transactionDesc": "RIB7948890633 - QAR - 12500.00 - Abdurrahman Shahjahan RIB:Transfer to-3198",
+                "transactionType": "DR",
+                "postingDate": "2012-04-04T10:16:18.98",
+                "transactionAmount": "12500",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-04",
+                "originTracerNumber": "RIB7948890633"
+            },
+            {
+                "transactionDesc": "Credit Card Payment",
+                "transactionType": "DR",
+                "postingDate": "2012-04-05T13:20:35.234",
+                "transactionAmount": "1500",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-05",
+                "originTracerNumber": "CC0405132001"
+            },
+            {
+                "transactionDesc": "Interest Credit - Savings Account",
+                "transactionType": "CR",
+                "postingDate": "2012-04-10T12:00:00.000",
+                "transactionAmount": "125.50",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-10",
+                "originTracerNumber": "INT0410120001"
+            },
+            {
+                "transactionDesc": "Online Transfer - Payment to Merchant",
+                "transactionType": "DR",
+                "postingDate": "2012-04-12T15:30:45.678",
+                "transactionAmount": "850",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-12",
+                "originTracerNumber": "ONL0412153001"
+            },
+            {
+                "transactionDesc": "Cash Deposit - Branch Counter",
+                "transactionType": "CR",
+                "postingDate": "2012-04-15T10:45:30.123",
+                "transactionAmount": "2000",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-15",
+                "originTracerNumber": "CDP0415104501"
+            },
+            {
+                "transactionDesc": "Loan Repayment - Installment",
+                "transactionType": "DR",
+                "postingDate": "2012-04-18T09:00:00.000",
+                "transactionAmount": "2500",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-18",
+                "originTracerNumber": "LOAN0418090001"
+            },
+            {
+                "transactionDesc": "Direct Debit - Insurance Premium",
+                "transactionType": "DR",
+                "postingDate": "2012-04-20T14:30:20.456",
+                "transactionAmount": "350",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-20",
+                "originTracerNumber": "DD0420143001"
+            },
+            {
+                "transactionDesc": "Salary Credit - April 2012",
+                "transactionType": "CR",
+                "postingDate": "2012-04-25T09:15:30.789",
+                "transactionAmount": "15000",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-25",
+                "originTracerNumber": "SAL20220425001"
+            },
+            {
+                "transactionDesc": "ATM Withdrawal - Branch 002",
+                "transactionType": "DR",
+                "postingDate": "2012-04-28T18:22:10.234",
+                "transactionAmount": "800",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-04-28",
+                "originTracerNumber": "ATM0428182201"
+            },
+            {
+                "transactionDesc": "Fund Transfer - To Account 300000012345",
+                "transactionType": "DR",
+                "postingDate": "2012-05-02T11:45:55.567",
+                "transactionAmount": "5000",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-05-02",
+                "originTracerNumber": "RIB4500071462"
+            },
+            {
+                "transactionDesc": "Funds Transfer Fees",
+                "transactionType": "DR",
+                "postingDate": "2012-05-02T11:45:56.123",
+                "transactionAmount": "10",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-05-02",
+                "originTracerNumber": "RIB4500071462"
+            },
+            {
+                "transactionDesc": "Standing Order - School Fees",
+                "transactionType": "DR",
+                "postingDate": "2012-05-05T08:00:00.000",
+                "transactionAmount": "1200",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-05-05",
+                "originTracerNumber": "SO0505080001"
+            },
+            {
+                "transactionDesc": "Mobile Payment - Internet Bill",
+                "transactionType": "DR",
+                "postingDate": "2012-05-08T16:30:25.890",
+                "transactionAmount": "180",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-05-08",
+                "originTracerNumber": "MOB0508163001"
+            },
+            {
+                "transactionDesc": "Cheque Deposit - Cheque No 789012",
+                "transactionType": "CR",
+                "postingDate": "2012-05-12T14:20:40.345",
+                "transactionAmount": "4500",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-05-12",
+                "originTracerNumber": "CHQ0512142001"
+            },
+            {
+                "transactionDesc": "Funds Transfer Fees",
+                "transactionType": "DR",
+                "postingDate": "2012-05-31T12:55:21.233",
+                "transactionAmount": "10",
+                "transCurrencyCode": "QAR",
+                "transactionDate": "2012-05-31",
+                "originTracerNumber": "RIB4500071462"
+            }
+        ],
+        "requestTime": "20120718090000000",
+        "returnStatus": {
+            "returnCode": "0000",
+            "returnCodeDesc": "Success"
+        },
+        "returnStatusProvider": {
+            "returnCodeProvider": "0",
+            "returnCodeDescProvider": "Success"
+        },
+        "correlationId": "44c75169-c9eb-403c-bca6-4609fc18bc11"
+    },
+    "errors": null
+}

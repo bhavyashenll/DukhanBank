@@ -19,7 +19,7 @@ import com.example.api.infrastructure.PathParamHelper;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 @RequireDeviceInfo
 public class RateController {
 
@@ -34,7 +34,7 @@ public class RateController {
     @Autowired
     private RateService rateService;
 
-    @PostMapping("/profitRate")
+    @PostMapping("/view-profit-rates")
     public ResponseEntity<ApiResponse<GroupedProfitRateResponse>> getProfitRate(
             @RequestHeader(name = AppConstant.HEADER_CHANNEL) String channel,
             @RequestHeader(name = AppConstant.HEADER_ACCEPT_LANGUAGE, defaultValue = AppConstant.DEFAULT_LANGUAGE) String lang,
@@ -75,7 +75,7 @@ public class RateController {
         return ResponseEntity.ok(transformed);
     }
 
-    @PostMapping({ "/exchangeRate", "/exchangeRate/{currencyCode}" })
+    @PostMapping({ "/view-fx-rates", "/view-fx-rates/{currencyCode}" })
     public ResponseEntity<ApiResponse<ExchangeRateItem>> getExchangeRate(
             @PathVariable(value = "currencyCode", required = false) String currencyCode,
             @RequestHeader(name = AppConstant.HEADER_CHANNEL) String channel,

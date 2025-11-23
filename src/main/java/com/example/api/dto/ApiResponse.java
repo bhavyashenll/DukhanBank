@@ -39,6 +39,10 @@ public class ApiResponse<T> {
     
     public static <T> ApiResponse<T> mandatoryHeaderNotFound() {
         return new ApiResponse<>(new Status("000400", "Incorrect or missing request headers"), List.of());
+    }
+    
+    public static <T> ApiResponse<T> invalidData() {
+        return new ApiResponse<>(new Status("000400", "Customer/account not found"), List.of());
     }     
     
     public static <T> ApiResponse<T> noDataFound() {

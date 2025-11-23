@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.example.api.infrastructure.helper.ServiceDefaultFieldsHelper;
 
 @Service
 @Component
@@ -35,35 +36,34 @@ public class ProcessUIRequestImpl implements ProcessUIRequest{
     
     @Autowired
     private ProcessResponseService processResponseService;
+
+    @Autowired
+    private ServiceDefaultFieldsHelper serviceDefaultFieldsHelper;
     
     @Autowired
     private DeviceBehaviorService deviceBehaviorService;
 
+
     @Override
     public ApiResponse<Map<String, Object>> processEndToEndFlow(String serviceName, BaseServiceRequest baseServiceRequest, String screenName) {
-        logger.info("Processing end-to-end flow for service: {}", serviceName);
-        
-        try {
-            // Check device behavior using common service
-            ApiResponse<Map<String, Object>> deviceResponse = deviceBehaviorService.checkDeviceBehavior(baseServiceRequest);
-            if (deviceResponse != null) {
-                return deviceResponse;
-            }
-            
-            if (appProperties.getMock().isMockResponse()) {
-                logger.debug("Using mock response for service: {}", serviceName);
-                Map<String, Object> mockResponse = loadMockJson(serviceName);
-                logger.info("Mock response: {}", mockResponse.toString());
-                return processResponseService.transformBankResponse(mockResponse, serviceName);
-            } else {
-                // TODO - call MQ service and get bankResponse
-                logger.debug("Calling MQ service for: {}", serviceName);
-                // For now, return no data found
-                return ApiResponse.noDataFound();
-            }
+        logger.info("Processing end-to-end flow using MOCK service for: {}", serviceName);
 
+        try {
+            logger.info("Using mock response for service: {}", serviceName);
+            Map<String, Object> fullMockResponse = loadMockJson(serviceName);
+            
+            // Check if this is a processing service - use callback transformation
+            if (serviceDefaultFieldsHelper.findIfProcessingService(serviceName)) {
+                logger.info("Using callback transformation for {} service", serviceName);
+                return processResponseService.transformBankResponseForProcessService(fullMockResponse, serviceName);
+            } else {
+                // For other services, extract bankResponse and use standard transformation
+                @SuppressWarnings("unchecked")
+                Map<String, Object> bankResponse = (Map<String, Object>) fullMockResponse.get("bankResponse");
+                return processResponseService.transformBankResponse(bankResponse, serviceName);
+            }
         } catch (Exception e) {
-            logger.error("Error processing end-to-end flow for service: {}", serviceName, e);
+            logger.error("Error processing mock flow for service: {}", serviceName, e);
             return ApiResponse.error();
         }
     }
@@ -85,17 +85,10 @@ public class ProcessUIRequestImpl implements ProcessUIRequest{
             // Parse the JSON to get the full response
             Map<String, Object> jsonResponse = objectMapper.readValue(content, new TypeReference<Map<String, Object>>() {});
             
-            // Extract the bankResponse from the response
-            @SuppressWarnings("unchecked")
-            Map<String, Object> bankResponse = (Map<String, Object>) jsonResponse.get("bankResponse");
-            
-            if (bankResponse == null) {
-                logger.warn("No 'bankResponse' field found in mock JSON for service: {}", serviceName);
-                return new java.util.HashMap<>();
-            }
-            
-            logger.debug("Successfully loaded mock JSON for service: {} with bankResponse", serviceName);
-            return bankResponse;
+            // Return the full response (including status and bankResponse) for processing services
+            // For non-processing services, only bankResponse will be extracted later
+            logger.debug("Successfully loaded mock JSON for service: {}", serviceName);
+            return jsonResponse;
         } catch (Exception e) {
             logger.error("Error loading mock JSON for service: {}", serviceName, e);
             throw new IOException("Failed to load mock JSON for service: " + serviceName, e);

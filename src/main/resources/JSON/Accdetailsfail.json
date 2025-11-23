@@ -1,0 +1,16 @@
+{
+    "resultSet": {
+      "message": "fail.",
+      "status": "1",
+      "errorFlag": "Y",
+      "processID": "1171074_1731321163133"
+    },
+    "accountName": "Corp Cust Testx",
+    "accountNumber": "022212070260010010000",
+    "ledgerName": "Current Accounts",
+    "currencyName": "Qatari Riyal",
+    "dateOpen": "23/07/2023",
+    "currentBal": "50618557.13",
+    "clearBal": "50619057.13",
+    "availableBal": "50618557.13"
+}

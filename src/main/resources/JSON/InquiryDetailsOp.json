@@ -1,0 +1,84 @@
+{
+  "accountFlag": "",
+  "transId": "H7dqGi26DQDcakOvLdWLTO7ZZEyCpXxgk",
+  "accountDetails": [
+    {
+      "availableBal": "1995766.0",
+      "accountNum": "020212070030010010000",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "3",
+      "accountType": "Current Accounts",
+      "acctFormat": "0202-1207003-001-0010-000"
+    },
+    {
+      "availableBal": "37.45",
+      "accountNum": "020212070030010010001",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "3",
+      "accountType": "Current Accounts",
+      "acctFormat": "0202-1207003-001-0010-001"
+    },
+    {
+      "availableBal": "9741109.645",
+      "accountNum": "020212070030010020000",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "3",
+      "accountType": "Savings Accounts",
+      "acctFormat": "0202-1207003-001-0020-000"
+    },
+    {
+      "availableBal": "693.4",
+      "accountNum": "020212070030010020001",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "3",
+      "accountType": "Savings Accounts",
+      "acctFormat": "0202-1207003-001-0020-001"
+    },
+    {
+      "availableBal": "410.86",
+      "accountNum": "020212070030010020002",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "3",
+      "accountType": "Savings Accounts",
+      "acctFormat": "0202-1207003-001-0020-002"
+    },
+    {
+      "availableBal": "99289.93",
+      "accountNum": "020212070030010030000",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "3",
+      "accountType": "Call Deposit Accounts",
+      "acctFormat": "0202-1207003-001-0030-000"
+    },
+    {
+      "availableBal": "76700.04",
+      "accountNum": "020212070030010030001",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "3",
+      "accountType": "Call Deposit Accounts",
+      "acctFormat": "0202-1207003-001-0030-001"
+    },
+    {
+      "availableBal": "36962.46",
+      "accountNum": "020212070030010087000",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "3",
+      "accountType": "Flexi Save",
+      "acctFormat": "0202-1207003-001-0087-000"
+    },
+    {
+      "availableBal": "15.0",
+      "accountNum": "020212070030010121000",
+      "currencyName": "Qatari Riyal",
+      "accountTypeFlag": "13",
+      "accountType": "Al Dana Savings Plan Account",
+      "acctFormat": "0202-1207003-001-0121-000"
+    }
+  ],
+  "cardFlag": "",
+  "opstatus": 0,
+  "message": "Data Fetched Successfully",
+  "cardsList": [],
+  "status": "0",
+  "url": "http://com.digi/v1/acc/inquiry/op"
+}

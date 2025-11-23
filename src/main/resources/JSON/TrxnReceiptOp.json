@@ -1,0 +1,31 @@
+{
+  "Sender_Details": [
+    {
+      "Alias": "",
+      "Account_Number": "QA34DOHB020212070030010010000"
+    }
+  ],
+  "transactionDateTime": "",
+  "transId": "",
+  "opstatus": 0,
+  "Receiver_Details": [
+    {
+      "Name": "",
+      "rcvrAlias": ""
+    }
+  ],
+  "message": "Data Fetched Successfully",
+  "Transaction_Details": [
+    {
+      "Type": "",
+      "Remarks": "",
+      "Amount": "",
+      "Channel": "",
+      "Trxn_Status": "",
+      "Trxn_Date": "14-Aug-2025 11.06 AM"
+    }
+  ],
+  "TransactionReferenceNo": "",
+  "status": "0",
+  "url": "http://com.digi/v1/acc/receipt/op"
+}

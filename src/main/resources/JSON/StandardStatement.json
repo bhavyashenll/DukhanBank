@@ -1,0 +1,61 @@
+{
+  "resultSet": {
+    "message": "Data fetched successfully.",
+    "status": "0",
+    "errorFlag": "0",
+    "requestReferenceNumber": "",
+    "transactionReferenceNo": "",
+    "processID": "1039698_1728636549853"
+  },
+  "numberOfTransactions": "2",
+  "transactions": {
+    "transaction": [
+      {
+        "transactionDate": "03/10/2024",
+        "valueDate": "03/10/2024",
+        "debitAmount": "20000",
+        "creditAmount": "0",
+        "debitCreditInd": "1",
+        "remarks": "FAWRAN |LADESH VARMA D V LATHA||  CORP PAYMENT",
+        "traSeqNum1": "93",
+        "traSeqNum2": "2",
+        "trxRemarks": "",
+        "transactionTable": "",
+        "docNum": "24092667784",
+        "explanation": "E-LOCAL FUND TRANSFER - FAWRAN |LADESH VARMA D V LATHA||  CORP PAYMENT#9921",
+        "curBalance": "7457856.7",
+        "transactionType": "",
+        "currencyDetail": "",
+        "transactionAmount": "",
+        "transactionsTable": "",
+        "remittInfo": null,
+        "equtransactionAmount": "",
+        "equdebitAmount": "20000",
+        "equcreditAmount": "0"
+      },
+      {
+        "transactionDate": "03/10/2024",
+        "valueDate": "03/10/2024",
+        "debitAmount": "12992.3",
+        "creditAmount": "0",
+        "debitCreditInd": "1",
+        "remarks": "",
+        "traSeqNum1": "1409",
+        "traSeqNum2": "33",
+        "trxRemarks": "",
+        "transactionTable": "",
+        "docNum": "4124000001",
+        "explanation": "MATURING LOAN INSTALLEMENTS - #225",
+        "curBalance": "7444864.4",
+        "transactionType": "",
+        "currencyDetail": "",
+        "transactionAmount": "",
+        "transactionsTable": "",
+        "remittInfo": null,
+        "equtransactionAmount": "",
+        "equdebitAmount": "12992.3",
+        "equcreditAmount": "0"
+      }
+    ]
+  }
+}

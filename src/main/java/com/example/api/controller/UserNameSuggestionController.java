@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 @RestController
@@ -39,28 +40,37 @@ public class UserNameSuggestionController {
         String qid = request.getRequestInfo() != null ? request.getRequestInfo().getQid() : null;
         log.info("Received username suggestion request for QID: {}", qid);
 
-        ApiResponse<UsernameSuggestionResponse> response = usernameService.generateUsernames(request);
+        try {
+            ApiResponse<UsernameSuggestionResponse> response = usernameService.generateUsernames(request);
 
-        if (response.getStatus() != null &&
-                ResponseConstant.SUCCESS_CODE.equals(response.getStatus().getCode())) {
-            response.getStatus().setDescription(ResponseConstant.process_msg);
+            if (response.getStatus() != null &&
+                    ResponseConstant.SUCCESS_CODE.equals(response.getStatus().getCode())) {
+                response.getStatus().setDescription(ResponseConstant.process_msg);
+            }
+
+            log.info("Returning {} username suggestions for QID: {}",
+                    response.getData() != null ? response.getData().size() : 0, qid);
+
+            // Create custom response format with single object instead of array
+            Map<String, Object> customResponse = new HashMap<>();
+            customResponse.put("status", response.getStatus());
+            
+            // Extract the single object from the list
+            if (response.getData() != null && !response.getData().isEmpty()) {
+                customResponse.put("data", response.getData().get(0));
+            } else {
+                // Return empty array for error responses to match expected format
+                customResponse.put("data", new ArrayList<>());
+            }
+
+            return ResponseEntity.ok(customResponse);
+        } catch (Exception e) {
+            log.error("Error processing username suggestion request for QID: {}", qid, e);
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("status", new ApiResponse.Status("000500", "Internal server error"));
+            errorResponse.put("data", new ArrayList<>());
+            return ResponseEntity.ok(errorResponse);
         }
-
-        log.info("Returning {} username suggestions for QID: {}",
-                response.getData() != null ? response.getData().size() : 0, qid);
-
-        // Create custom response format with single object instead of array
-        Map<String, Object> customResponse = new HashMap<>();
-        customResponse.put("status", response.getStatus());
-        
-        // Extract the single object from the list
-        if (response.getData() != null && !response.getData().isEmpty()) {
-            customResponse.put("data", response.getData().get(0));
-        } else {
-            customResponse.put("data", null);
-        }
-
-        return ResponseEntity.ok(customResponse);
     }
 }
 
