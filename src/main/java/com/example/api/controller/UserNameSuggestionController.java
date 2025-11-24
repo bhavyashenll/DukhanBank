@@ -37,8 +37,8 @@ public class UserNameSuggestionController {
             @RequestHeader(name = AppConstant.SUB_MODULE_ID, required = true) String subModuleId,
             @Valid @RequestBody UsernameSuggestionRequest request) {
 
-        String qid = request.getRequestInfo() != null ? request.getRequestInfo().getQid() : null;
-        log.info("Received username suggestion request for QID: {}", qid);
+        String customerId = request.getRequestInfo() != null ? request.getRequestInfo().getCustomerId() : null;
+        log.info("Received username suggestion request for customerId: {}", customerId);
 
         try {
             ApiResponse<UsernameSuggestionResponse> response = usernameService.generateUsernames(request);
@@ -48,8 +48,8 @@ public class UserNameSuggestionController {
                 response.getStatus().setDescription(ResponseConstant.process_msg);
             }
 
-            log.info("Returning {} username suggestions for QID: {}",
-                    response.getData() != null ? response.getData().size() : 0, qid);
+            log.info("Returning {} username suggestions for customerId: {}",
+                    response.getData() != null ? response.getData().size() : 0, customerId);
 
             // Create custom response format with single object instead of array
             Map<String, Object> customResponse = new HashMap<>();
@@ -65,7 +65,7 @@ public class UserNameSuggestionController {
 
             return ResponseEntity.ok(customResponse);
         } catch (Exception e) {
-            log.error("Error processing username suggestion request for QID: {}", qid, e);
+            log.error("Error processing username suggestion request for customerId: {}", customerId, e);
             Map<String, Object> errorResponse = new HashMap<>();
             errorResponse.put("status", new ApiResponse.Status("000500", "Internal server error"));
             errorResponse.put("data", new ArrayList<>());

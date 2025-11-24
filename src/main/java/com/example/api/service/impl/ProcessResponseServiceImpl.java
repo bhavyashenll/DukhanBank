@@ -53,6 +53,16 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
                 @SuppressWarnings("unchecked")
                 Map<String, Object> singleMap = (Map<String, Object>) dataObject;
                 dataList = List.of(singleMap);
+            } else if (serviceName.equalsIgnoreCase("SIGN.ON") && dataObject instanceof List) {
+                // For SIGN.ON, accounts is already a List
+                @SuppressWarnings("unchecked")
+                List<Map<String, Object>> accountsList = (List<Map<String, Object>>) dataObject;
+                dataList = accountsList;
+            } else if (serviceName.equalsIgnoreCase("TRANSACTION.STATEMENT") && dataObject instanceof List) {
+                // For TRANSACTION.STATEMENT, transactions is already a List
+                @SuppressWarnings("unchecked")
+                List<Map<String, Object>> transactionsList = (List<Map<String, Object>>) dataObject;
+                dataList = transactionsList;
             } else {
                 // For other services, expect a List
                 @SuppressWarnings("unchecked")
@@ -159,7 +169,7 @@ public class ProcessResponseServiceImpl implements ProcessResponseService {
             return ApiResponse.badRequest();
             
         } catch (Exception e) {
-            logger.error("Error transforming bank response for callback service: {}", serviceName, e);
+            logger.error("Error transforming bank response for process service: {}", serviceName, e);
             return ApiResponse.badRequest();
         }
     }

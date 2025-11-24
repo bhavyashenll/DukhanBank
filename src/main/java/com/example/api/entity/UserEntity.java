@@ -20,6 +20,9 @@ public class UserEntity {
     @Column(name = "user_no")
     private Long userNo;
 
+    @Column(name = "customer_id")
+    private Long customerId;
+
     @Column(name = "user_id", length = 50, nullable = false, unique = true)
     private String userId;
 

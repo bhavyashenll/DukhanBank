@@ -18,7 +18,7 @@ public class UsernameSuggestionRequest {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class RequestInfo {
-        private String qid;
+        private String customerId;
         private String lang;
     }
 

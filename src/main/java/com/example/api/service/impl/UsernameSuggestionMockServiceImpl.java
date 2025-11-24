@@ -5,20 +5,16 @@ import com.example.api.dto.ApiResponse;
 import com.example.api.dto.RuleDto;
 import com.example.api.dto.UsernameSuggestionRequest;
 import com.example.api.dto.UsernameSuggestionResponse;
+import com.example.api.entity.UserEntity;
 import com.example.api.infrastructure.helper.UsernameValidator;
 import com.example.api.repository.UserRepository;
 import com.example.api.service.UsernameRuleService;
 import com.example.api.service.UsernameSuggestionService;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
-import java.io.InputStream;
 import java.util.*;
 @Service
 @ConditionalOnProperty(prefix = "mock", name = "enabled", havingValue = "true")
@@ -27,11 +23,7 @@ import java.util.*;
 public class UsernameSuggestionMockServiceImpl implements UsernameSuggestionService {
 
     private final UsernameRuleService usernameRuleService;
-    private final ObjectMapper objectMapper = new ObjectMapper();
     private final UserRepository userRepository;
-
-    @Value("classpath:MockResponses/usermock-data.json")
-    private Resource usersJson;
 
     @Override
     public ApiResponse<UsernameSuggestionResponse> generateUsernames(UsernameSuggestionRequest request) {
@@ -40,37 +32,46 @@ public class UsernameSuggestionMockServiceImpl implements UsernameSuggestionServ
         String lang = Optional.ofNullable(request.getRequestInfo())
                 .map(UsernameSuggestionRequest.RequestInfo::getLang)
                 .orElse("en");
-        String qid = Optional.ofNullable(request.getRequestInfo())
-                .map(UsernameSuggestionRequest.RequestInfo::getQid)
+        String customerId = Optional.ofNullable(request.getRequestInfo())
+                .map(UsernameSuggestionRequest.RequestInfo::getCustomerId)
                 .orElse(null);
 
         log.info("Language selected: {}", lang);
-        log.info("QID received: {}", qid);
+        log.info("customerId received: {}", customerId);
 
-        // Read mock users from JSON
-        List<Map<String, Object>> users = readUsersFromJson();
-        if (users.isEmpty()) {
-            log.warn("⚠️ No mock users found in JSON file: {}", usersJson.getFilename());
+        // Fetch user from rbx_t_user_details table by customerId
+        if (customerId == null) {
+            log.warn("customerId is null, cannot fetch user from database");
             return ApiResponse.badRequest();
         }
 
-        // Filter by QID
-        Map<String, Object> user = users.stream()
-                .filter(u -> qid != null && qid.equalsIgnoreCase(String.valueOf(u.get("key"))))
-                .findFirst()
-                .orElse(null);
-
-        if (user == null) {
-            log.warn("No user found for QID: {}", qid);
+        Long customerIdLong;
+        try {
+            customerIdLong = Long.parseLong(customerId);
+        } catch (NumberFormatException e) {
+            log.warn("Invalid customerId format: {}", customerId);
             return ApiResponse.badRequest();
         }
+
+        Optional<UserEntity> userEntityOpt = userRepository.findByCustomerId(customerIdLong);
+        if (userEntityOpt.isEmpty()) {
+            log.warn("No user found for customerId: {}", customerId);
+            return ApiResponse.badRequest();
+        }
+
+        UserEntity userEntity = userEntityOpt.get();
 
         // Extract user info
-        String first = Optional.ofNullable(user.get("firstname")).map(Object::toString).orElse("user");
-        String last = Optional.ofNullable(user.get("lastname")).map(Object::toString).orElse("");
-        String dob = Optional.ofNullable(user.get("date_of_birth")).map(Object::toString).orElse("01-01-00");
+        String first = Optional.ofNullable(userEntity.getFirstName()).orElse("user");
+        String last = Optional.ofNullable(userEntity.getLastName()).orElse("");
+        String dob = userEntity.getDateOfBirth() != null 
+                ? String.format("%02d-%02d-%02d", 
+                    userEntity.getDateOfBirth().getDayOfMonth(),
+                    userEntity.getDateOfBirth().getMonthValue(),
+                    userEntity.getDateOfBirth().getYear() % 100)
+                : "01-01-00";
 
-        log.debug("User Data for QID {} → firstName={}, lastName={}, dateOfBirth={}", qid, first, last, dob);
+        log.debug("User Data for customerId {} → firstName={}, lastName={}, dateOfBirth={}", customerId, first, last, dob);
 
         // Extract day + month from DOB
         String dayMonth = "0101";
@@ -122,17 +123,6 @@ public class UsernameSuggestionMockServiceImpl implements UsernameSuggestionServ
         
         return ApiResponse.success(List.of(response));
     }
-
-    private List<Map<String, Object>> readUsersFromJson() {
-        try (InputStream is = usersJson.getInputStream()) {
-            log.info(" Reading mock user data from file: {}", usersJson.getFilename());
-            return objectMapper.readValue(is, new TypeReference<List<Map<String, Object>>>() {});
-        } catch (Exception e) {
-            log.error(" Failed to read users.json: {}", e.getMessage(), e);
-            return Collections.emptyList();
-        }
-    }
-
 
     private List<String> generateAvailableUsernames(String baseFirst, String baseLast, String dayMonth) {
         log.debug("Generating unique usernames based on base: {} {}", baseFirst, baseLast);

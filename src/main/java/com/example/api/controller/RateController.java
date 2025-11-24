@@ -75,16 +75,27 @@ public class RateController {
         return ResponseEntity.ok(transformed);
     }
 
-    @PostMapping({ "/view-fx-rates", "/view-fx-rates/{currencyCode}" })
+    @PostMapping("/view-fx-rates")
     public ResponseEntity<ApiResponse<ExchangeRateItem>> getExchangeRate(
-            @PathVariable(value = "currencyCode", required = false) String currencyCode,
-            @RequestHeader(name = AppConstant.HEADER_CHANNEL) String channel,
-            @RequestHeader(name = AppConstant.HEADER_ACCEPT_LANGUAGE, defaultValue = AppConstant.DEFAULT_LANGUAGE) String lang,
-            @RequestHeader(name = AppConstant.SERVICEID) String serviceId,
-            @RequestHeader(name = AppConstant.SCREEN_ID) String screenId,
-            @RequestHeader(name = AppConstant.MODULE_ID) String moduleId,
-            @RequestHeader(name = AppConstant.SUB_MODULE_ID) String subModuleId,
-            @RequestBody BaseServiceRequest baseServiceRequest) {
+                    @RequestHeader(name = AppConstant.HEADER_CHANNEL) String channel,
+                    @RequestHeader(name = AppConstant.HEADER_ACCEPT_LANGUAGE, defaultValue = AppConstant.DEFAULT_LANGUAGE) String lang,
+                    @RequestHeader(name = AppConstant.SERVICEID) String serviceId,
+                    @RequestHeader(name = AppConstant.SCREEN_ID) String screenId,
+                    @RequestHeader(name = AppConstant.MODULE_ID) String moduleId,
+                    @RequestHeader(name = AppConstant.SUB_MODULE_ID) String subModuleId,
+                    @RequestBody BaseServiceRequest baseServiceRequest) {
+
+            // Extract currencyCode from request body (optional)
+            String currencyCode = null;
+            if (baseServiceRequest.getRequestInfo() != null) {
+                    Object currencyCodeObj = baseServiceRequest.getRequestInfo().get("currencyCode");
+                    if (currencyCodeObj != null) {
+                            String currencyCodeStr = currencyCodeObj.toString();
+                            if (!currencyCodeStr.isBlank()) {
+                                    currencyCode = currencyCodeStr;
+                            }
+                    }
+            }
 
         logger.info("Received exchangeRate request | currencyCode={}, serviceId={}, screenId={}, lang={}",
                 currencyCode, serviceId, screenId, lang);
@@ -100,7 +111,7 @@ public class RateController {
                 response.getStatus() != null ? response.getStatus().getDescription() : "NULL");
 
         ApiResponse<ExchangeRateItem> transformed =
-                rateService.postProcessExchangeRate(response, lang);
+                rateService.postProcessExchangeRate(response, lang, currencyCode);
 
         logger.info("After postProcessExchangeRate | statusCode={}, description={}",
                 transformed.getStatus() != null ? transformed.getStatus().getCode() : "NULL",

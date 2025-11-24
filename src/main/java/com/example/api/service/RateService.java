@@ -9,6 +9,7 @@ import java.util.Map;
 
 public interface RateService {
     ApiResponse<ExchangeRateItem> postProcessExchangeRate(ApiResponse<Map<String, Object>> response, String lang);
+    ApiResponse<ExchangeRateItem> postProcessExchangeRate(ApiResponse<Map<String, Object>> response, String lang, String currencyCode);
     ApiResponse<ProfitRateItem> postProcessProfitRate(ApiResponse<Map<String, Object>> response, String lang);
     ApiResponse<GroupedProfitRateResponse> postProcessProfitRateGrouped(ApiResponse<Map<String, Object>> response, String lang);
 }

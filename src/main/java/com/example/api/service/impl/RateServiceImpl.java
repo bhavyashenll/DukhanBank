@@ -44,7 +44,12 @@ public class RateServiceImpl implements RateService {
 
     @Override
     public ApiResponse<ExchangeRateItem> postProcessExchangeRate(ApiResponse<Map<String, Object>> response, String lang) {
-        logger.info("Post-processing exchange rate response for language: {}", lang);
+        return postProcessExchangeRate(response, lang, null);
+    }
+
+    @Override
+    public ApiResponse<ExchangeRateItem> postProcessExchangeRate(ApiResponse<Map<String, Object>> response, String lang, String currencyCode) {
+        logger.info("Post-processing exchange rate response for language: {}, currencyCode: {}", lang, currencyCode);
         
         // Validate input parameters
         if (Objects.isNull(lang) || lang.trim().isEmpty()) {
@@ -55,6 +60,13 @@ public class RateServiceImpl implements RateService {
         String normalizedLang = lang.trim().toUpperCase();
         if (!"EN".equals(normalizedLang) && !"AR".equals(normalizedLang)) {
             throw new IllegalArgumentException("Invalid language code. Supported values: EN, AR");
+        }
+        
+        // Normalize currencyCode if provided
+        String normalizedCurrencyCode = null;
+        if (Objects.nonNull(currencyCode) && !currencyCode.trim().isEmpty()) {
+            normalizedCurrencyCode = currencyCode.trim().toUpperCase();
+            logger.info("Filtering exchange rates by currencyCode: {}", normalizedCurrencyCode);
         }
         
         try {
@@ -80,14 +92,24 @@ public class RateServiceImpl implements RateService {
                 try {
                     ExchangeRateItem transformedItem = transformExchangeRateItem(item, dbByIso, normalizedLang);
                     if (Objects.nonNull(transformedItem)) {
-                        transformed.add(transformedItem);
+                        // Filter by currencyCode if provided
+                        if (normalizedCurrencyCode == null || 
+                            (Objects.nonNull(transformedItem.getIsoCode()) && 
+                             transformedItem.getIsoCode().toUpperCase().equals(normalizedCurrencyCode))) {
+                            transformed.add(transformedItem);
+                        } else {
+                            logger.debug("Filtered out exchange rate item with isoCode: {} (does not match currencyCode: {})", 
+                                transformedItem.getIsoCode(), normalizedCurrencyCode);
+                        }
                     }
                 } catch (Exception e) {
                     logger.warn("Error transforming exchange rate item: {}", e.getMessage());
                 }
             }
 
-            logger.info("Successfully processed {} exchange rate items", transformed.size());
+            logger.info("Successfully processed {} exchange rate items{}", 
+                transformed.size(), 
+                normalizedCurrencyCode != null ? " (filtered by currencyCode: " + normalizedCurrencyCode + ")" : "");
             return ApiResponse.success(transformed);
         } catch (Exception e) {
             logger.error("Error post-processing exchange rate response", e);
